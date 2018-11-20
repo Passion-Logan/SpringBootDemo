@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/association?characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: www..www
+    tomcat:
+      initial-size: 1
+      max-active: 20
+      max-wait: 60000
+  thymeleaf:
+    # 检查模版位置是否存在
+    check-template-location: true
+    # 模版编码方式
+    encoding: UTF-8
+    # 关闭模版缓存
+    cache: false
+  #  application:
+#    name: spring-boot-redis
+  jpa:
+    show-sql: true
+    database: mysql
+    # 配置hibernate根据实体自动生成表
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+#  security:
+#    user:
+#      name: admin
+#      password: admin
+

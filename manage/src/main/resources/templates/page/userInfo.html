@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+	<meta charset="utf-8">
+	<title>个人资料</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+
+	<link rel="stylesheet" href="/layui/frame/layui/css/layui.css" media="all" />
+	<link rel="stylesheet" href="/layui/css/user.css" media="all" />
+	<script src="/webjars/jquery/3.2.1/dist/jquery.min.js"></script>
+</head>
+<body class="childrenBody">
+	<form class="layui-form" th:action="@{/update}" method="post">
+		<div class="user_left">
+			<div class="layui-form-item">
+			    <label class="layui-form-label">学号</label>
+			    <div class="layui-input-block">
+			    	<input type="text" id="username" name="username" th:value="${userInfo.username}" disabled class="layui-input layui-disabled">
+			    </div>
+			</div>
+
+			<div class="layui-form-item" style="display: none;">
+			    <label class="layui-form-label">角色</label>
+			    <div class="layui-input-block">
+					<select name="roles" lay-verify="required" id="roles" sec:authorize="hasAnyRole('ROLE_USER','ROLE_ZHUXI','ROLE_FUZHUXI','ROLE_TUAN','ROLE_JISHU','ROLE_FUJISHU','ROLE_HUODONG','ROLE_FUHUODONG','ROLE_ZUZHI','ROLE_FUZUZHI')">
+						<option th:text="${userInfo.roles}" selected></option>
+						<option value="ROLE_ROOT" disabled>超级管理员</option>
+						<option value="ROLE_ZHUXI" disabled>主席</option>
+						<option value="ROLE_FUZHUXI" disabled>副主席</option>
+						<option value="ROLE_TUAN" disabled>团支书</option>
+						<option value="ROLE_JISHU" disabled>技术部部长</option>
+						<option value="ROLE_FUJISHU" disabled>技术部副部长</option>
+						<option value="ROLE_HUODONG" disabled>活动部部长</option>
+						<option value="ROLE_FUHUODONG" disabled>活动部副部长</option>
+						<option value="ROLE_USER" disabled>协会成员</option>
+					</select>
+
+					<select name="roles" lay-verify="required" sec:authorize="hasAnyRole('ROLE_ROOT')">
+						<option th:text="${userInfo.roles}" selected></option>
+						<option value="ROLE_ROOT">超级管理员</option>
+						<option value="ROLE_USER">协会成员</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="layui-form-item">
+				<label class="layui-form-label">系部</label>
+				<div class="layui-input-block">
+					<input type="text" id="department" name="department" th:value="${userInfo.department}" lay-verify="required" class="layui-input realName">
+				</div>
+			</div>
+			<div class="layui-form-item">
+			    <label class="layui-form-label">班级</label>
+			    <div class="layui-input-block">
+			    	<input type="text" id="clazz" name="clazz" th:value="${userInfo.clazz}" lay-verify="required" class="layui-input realName">
+			    </div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">姓名</label>
+				<div class="layui-input-block">
+					<input type="text" id="name" name="name" th:value="${userInfo.name}" lay-verify="required" class="layui-input realName">
+				</div>
+			</div>
+			<div class="layui-form-item">
+			    <label class="layui-form-label">QQ</label>
+			    <div class="layui-input-block">
+			    	<input type="tel" id="qq" name="qq" th:value="${userInfo.qq}" lay-verify="required" class="layui-input userPhone">
+			    </div>
+			</div>
+			<div class="layui-form-item">
+			    <label class="layui-form-label">邮箱</label>
+			    <div class="layui-input-block">
+			    	<input type="text" id="email" name="email" th:value="${userInfo.email}"  lay-verify="required|email" class="layui-input userEmail">
+			    </div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">手机号码</label>
+				<div class="layui-input-block">
+					<input type="tel" id="tel" name="tel" th:value="${userInfo.tel}" lay-verify="required|phone" class="layui-input userPhone">
+				</div>
+			</div>
+		</div>
+		<div class="user_right">
+			<input type="file" name="userFace" class="layui-upload-file" lay-title="掐指一算，换不了头像">
+			<p>掐指一算，你换不了头像~</p>
+			<img src="/layui/frame/static/image/user-logo.jpg" class="layui-circle" id="userFace">
+		</div>
+		<div class="layui-form-item" style="margin-left: 5%;">
+		    <div class="layui-input-block">
+		    	<button class="layui-btn" lay-submit="" lay-filter="changeUser">立即提交</button>
+				<!--<button type="reset" class="layui-btn layui-btn-primary">重置</button>-->
+		    </div>
+		</div>
+
+		<div th:if="${param.success}">
+			<p style="text-align: center;display: none;" class="text-success" id="success">修改成功！</p>
+		</div>
+	</form>
+	<script type="text/javascript" src="/layui/frame/layui/layui.js"></script>
+	<script type="text/javascript" src="/layui/js/main.js"></script>
+	<script>
+		if($("#success").html() != null && $("#success").html() != "") {
+            layui.use('layer', function(){
+                var layer = layui.layer;
+
+                layer.msg($("#success").html());
+            });
+        }
+	</script>
+</body>
+</html>

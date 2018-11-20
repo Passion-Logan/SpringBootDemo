@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>test</title>
+</head>
+<body>
+    <h3 th:text="${userModel.result}"></h3>
+    <table border="1">
+        <thead>
+        <tr>
+            <td>id</td>
+            <td>姓名</td>
+            <td>密码</td>
+            <td>删除</td>
+        </tr>
+        </thead>
+        <tr th:if="${userModel.allUser.size()} eq 0">
+            <td colspan="4"> 没有用户信息</td>
+        </tr>
+        <tbody id="tbody">
+        <tr th:each="user : ${userModel.allUser}">
+            <td th:text="${user.uId}"></td>
+            <td th:text="${user.uUsername}">></td>
+            <td th:text="${user.uPassword}"></td>
+
+            <td><a th:href="@{'/user/del/' + ${user.uId}}">删除</a></td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

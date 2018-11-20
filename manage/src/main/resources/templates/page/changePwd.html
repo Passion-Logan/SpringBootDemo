@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+	<meta charset="utf-8">
+	<title>修改密码</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="/layui/frame/layui/css/layui.css" media="all" />
+	<link rel="stylesheet" href="/layui/css/user.css" media="all" />
+
+    <script src="/webjars/jquery/3.2.1/dist/jquery.min.js"></script>
+</head>
+<body class="childrenBody">
+	<form class="layui-form changePwd" th:action="@{/changePwd}">
+		<div class="layui-form-item">
+		    <label class="layui-form-label">学号</label>
+		    <div class="layui-input-block">
+		    	<!--<input type="text" value="请叫我马哥" disabled class="layui-input layui-disabled">-->
+				<input type="text" th:value="${changePwd.username}" disabled class="layui-input layui-disabled">
+		    </div>
+		</div>
+		<div class="layui-form-item">
+		    <label class="layui-form-label">旧密码</label>
+		    <div class="layui-input-block">
+		    	<input type="password" value="" id="oldPwd" name="oldPwd" placeholder="请输入旧密码" lay-verify="required|oldPwd" class="layui-input pwd">
+		    </div>
+		</div>
+		<div class="layui-form-item">
+		    <label class="layui-form-label">新密码</label>
+		    <div class="layui-input-block">
+		    	<input type="password" value="" id="newPwd" name="newPwd" placeholder="请输入新密码" lay-verify="required|newPwd" class="layui-input pwd">
+		    </div>
+		</div>
+		<div class="layui-form-item">
+		    <label class="layui-form-label">确认密码</label>
+		    <div class="layui-input-block">
+		    	<input type="password" value="" id="pwd" name="pwd" placeholder="请确认密码" lay-verify="required|confirmPwd" class="layui-input pwd">
+		    </div>
+		</div>
+		<div class="layui-form-item">
+		    <div class="layui-input-block">
+		    	<button class="layui-btn" lay-submit="" lay-filter="changePwd" type="submit">立即修改</button>
+				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+		    </div>
+		</div>
+	</form>
+
+    <div th:if="${param.success}">
+        <p style="text-align: center;display: none;" class="text-success" id="success">修改成功！</p>
+    </div>
+    <div th:if="${param.oldError}">
+        <p style="text-align: center;display: none;" class="text-success" id="oldError">旧密码输入错误，修改失败！</p>
+    </div>
+    <div th:if="${param.pwdError}">
+        <p style="text-align: center;display: none;" class="text-success" id="pwdError">两次输入的密码不一致，修改失败！</p>
+    </div>
+
+	<script type="text/javascript" src="/layui/frame/layui/layui.js"></script>
+    <script>
+        if($("#success").html() != null && $("#success").html() != "") {
+            layui.use('layer', function(){
+                var layer = layui.layer;
+
+                layer.msg($("#success").html());
+            });
+        }else if($("#oldError").html() != null && $("#oldError").html() != "") {
+            layui.use('layer', function(){
+                var layer = layui.layer;
+
+                layer.msg($("#oldError").html());
+            });
+        }else if($("#pwdError").html() != null && $("#pwdError").html() != "") {
+            layui.use('layer', function(){
+                var layer = layui.layer;
+
+                layer.msg($("#pwdError").html());
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+	<meta charset="utf-8">
+	<title>留言板管理</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="/layui/frame/layui/css/layui.css" media="all" />
+	<link rel="stylesheet" href="//at.alicdn.com/t/font_tnyc012u2rlwstt9.css" media="all" />
+	<link rel="stylesheet" href="/layui/css/user.css" media="all" />
+
+    <script src="/webjars/jquery/3.2.1/dist/jquery.min.js"></script>
+</head>
+<body class="childrenBody">
+    <!--操作-->
+	<script type="text/html" id="bar">
+		<a class="layui-btn layui-btn-danger" lay-event="del" style="text-align: center;">删除</a>
+	</script>
+
+    <div style="margin-top: 10px;">
+        搜索姓名：
+        <div class="layui-inline">
+            <input class="layui-input" name="name" id="reload" autocomplete="off" required>
+        </div>
+        <button class="layui-btn" data-type="reload" id="find">搜索</button>
+        <button class="layui-btn layui-btn-danger" id="delAll">清理内存</button>
+    </div>
+
+    <table id="words" lay-filter="words" class="layui-hide"></table>
+
+
+    <script type="text/javascript" src="/lay/dist/layui.js"></script>
+	<script type="text/javascript" src="/layui/js/wordsAdmin.js"></script>
+</body>
+</html>

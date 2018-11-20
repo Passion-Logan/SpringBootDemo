@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+	<meta charset="utf-8">
+	<title>协会成员</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="/layui/frame/layui/css/layui.css" media="all" />
+	<link rel="stylesheet" href="//at.alicdn.com/t/font_tnyc012u2rlwstt9.css" media="all" />
+	<link rel="stylesheet" href="/layui/css/user.css" media="all" />
+
+    <script src="/webjars/jquery/3.2.1/dist/jquery.min.js"></script>
+</head>
+<body class="childrenBody">
+    <!--操作-->
+	<script type="text/html" id="bar">
+		<a class="layui-btn" lay-event="edit" style="text-align: center;">编辑</a>
+		<a class="layui-btn layui-btn-danger" lay-event="del" style="text-align: center;">删除</a>
+	</script>
+
+    <div style="margin-top: 10px;">
+        搜索学号：
+        <div class="layui-inline">
+            <input class="layui-input" name="username" id="reload" autocomplete="off" required>
+        </div>
+        <button class="layui-btn" data-type="reload" id="find">搜索</button>
+        <button class="layui-btn layui-btn-danger" id="delAll">清理内存</button>
+    </div>
+
+    <table id="users" lay-filter="users" class="layui-hide"></table>
+
+
+    <script type="text/javascript" src="/lay/dist/layui.js"></script>
+	<script type="text/javascript" src="/layui/js/userAdmin.js"></script>
+</body>
+
+
+
+<div id="openUser" style="display: none; padding: 1em;">
+    <!--th:action="@{/updateAdmin}"-->
+    <form class="layui-form layui-form-pane" th:object="${userAdmin}" method="post" id="updataForm">
+        <input type="text" name="id" id="id" autocomplete="off" class="layui-input" style="display: none;">
+        <!--学号-->
+        <div class="layui-form-item">
+            <label class="layui-form-label">学号</label>
+            <div class="layui-input-block">
+                <input type="text" name="username" id="username" required  lay-verify="required" placeholder="请输入学号" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <!--姓名-->
+        <div class="layui-form-item">
+            <label class="layui-form-label">姓名</label>
+            <div class="layui-input-block">
+                <input type="text" name="name" id="name" required  lay-verify="required" placeholder="请输入姓名" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <!--系部-->
+        <div class="layui-form-item">
+            <label class="layui-form-label">系部</label>
+            <div class="layui-input-block" id="department">
+                <select name="department" lay-verify="required">
+                    <option value="信息工程系">信息工程系</option>
+                    <option value="电子工程系">电子工程系</option>
+                    <option value="机电工程系">机电工程系</option>
+                    <option value="经济与管理系">经济与管理系</option>
+                    <option value="电气工程系">电气工程系</option>
+                    <option value="数字艺术系">数字艺术系</option>
+                    <option value="汽车工程系">汽车工程系</option>
+                </select>
+            </div>
+        </div>
+        <!--班级-->
+        <div class="layui-form-item">
+            <label class="layui-form-label">班级</label>
+            <div class="layui-input-block">
+                <input type="text" name="clazz" id="clazz" required  lay-verify="required" placeholder="请输入班级" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <!--角色-->
+        <div class="layui-form-item">
+            <label class="layui-form-label">角色</label>
+            <div class="layui-input-block" id="roles">
+                <select name="roles" lay-verify="required">
+                    <option value="ROLE_ZHUXI">主席</option>
+                    <option value="ROLE_FUZHUXI">副主席</option>
+                    <option value="ROLE_TUAN">团支书</option>
+                    <option value="ROLE_JISHU">技术部部长</option>
+                    <option value="ROLE_FUJISHU">技术部副部长</option>
+                    <option value="ROLE_HUODONG">活动部部长</option>
+                    <option value="ROLE_FUHUODONG">活部副部长</option>
+                    <option value="ROLE_ZUZHI">组织部部长</option>
+                    <option value="ROLE_FUZUZHI">组织部副部长</option>
+                    <option value="ROLE_USER">协会会员</option>
+                </select>
+            </div>
+        </div>
+        <!--QQ-->
+        <div class="layui-form-item">
+            <label class="layui-form-label">QQ</label>
+            <div class="layui-input-block">
+                <input type="text" name="qq" id="qq" required  lay-verify="required" placeholder="请输入QQ号" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <!--email-->
+        <div class="layui-form-item">
+            <label class="layui-form-label">Email</label>
+            <div class="layui-input-block">
+                <input type="text" name="email" id="email" required  lay-verify="required" placeholder="请输入电子邮箱" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <!--联系电话-->
+        <div class="layui-form-item">
+            <label class="layui-form-label">联系电话</label>
+            <div class="layui-input-block">
+                <input type="tel" name="tel" id="tel" required  lay-verify="required" placeholder="请输入联系电话" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <!--lay-submit lay-filter="formDemo"-->
+                <button class="layui-btn" id="formAdmin">立即提交</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+</html>

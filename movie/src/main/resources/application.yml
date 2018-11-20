@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/movie?characterEncodingUTF-8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: www..www
+  thymeleaf:
+    check-template-location: true
+    encoding: UTF-8
+    cache: false
+    prefix: classpath:/static/

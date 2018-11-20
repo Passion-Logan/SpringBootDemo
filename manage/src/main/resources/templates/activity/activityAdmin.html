@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+	<meta charset="utf-8">
+	<title>活动管理</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="/layui/frame/layui/css/layui.css" media="all" />
+	<link rel="stylesheet" href="//at.alicdn.com/t/font_tnyc012u2rlwstt9.css" media="all" />
+	<link rel="stylesheet" href="/layui/css/user.css" media="all" />
+
+    <script src="/webjars/jquery/3.2.1/dist/jquery.min.js"></script>
+</head>
+<body class="childrenBody">
+    <!--操作-->
+	<script type="text/html" id="bar">
+		<a class="layui-btn" lay-event="edit" style="text-align: center;">编辑</a>
+		<a class="layui-btn layui-btn-danger" lay-event="del" style="text-align: center;">删除</a>
+        <a class="layui-btn layui-btn-warm" lay-event="start" style="text-align: center;">开始活动</a>
+        <a class="layui-btn layui-btn-danger" lay-event="end" style="text-align: center;">结束活动</a>
+	</script>
+
+    <div style="margin-top: 10px;">
+        <button class="layui-btn layui-btn-danger" id="createActivity">发布活动</button>
+    </div>
+
+    <table id="users" lay-filter="users" class="layui-hide"></table>
+
+
+    <script type="text/javascript" src="/lay/dist/layui.js"></script>
+	<script type="text/javascript" src="/layui/js/activityAdmin.js"></script>
+</body>
+
+<!--修改活动信息模块-->
+<div id="editActivity" style="display: none; padding: 1em;">
+    <form class="layui-form layui-form-pane" th:object="${activityEdit}" method="post" id="editForm">
+        <input type="text" name="id" id="id" autocomplete="off" class="layui-input" style="display: none;">
+        <!--活动名称-->
+        <div class="layui-form-item">
+            <label class="layui-form-label">活动名称</label>
+            <div class="layui-input-block">
+                <input type="text" name="name" id="name" required  lay-verify="required" placeholder="请输入活动名称" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <!--活动地点-->
+        <div class="layui-form-item">
+            <label class="layui-form-label">活动地点</label>
+            <div class="layui-input-block">
+                <input type="text" name="site" id="site" required  lay-verify="required" placeholder="请输入活动地点" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <!--开始时间-->
+        <div class="layui-form-item">
+            <label class="layui-form-label">开始时间</label>
+            <div class="layui-input-inline">
+                <input type="text" name="start" id="start" required  lay-verify="required" placeholder="请选择开始时间" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <!--活动状态-->
+        <div class="layui-form-item">
+            <label class="layui-form-label">活动状态</label>
+            <div class="layui-input-block" id="flag">
+                <select name="flag" lay-verify="required">
+                    <option value="0">未开始</option>
+                    <option value="1">进行中</option>
+                    <option value="2">已结束</option>
+                </select>
+            </div>
+        </div>
+        <!--活动简介-->
+        <div class="layui-form-item">
+            <label class="layui-form-label">活动简介</label>
+            <div class="layui-input-block">
+                <textarea name="intro" id="intro" placeholder="请输入简介内容" required lay-verify="required" class="layui-textarea" autocomplete="off"></textarea>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" id="editSubmit">立即提交</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!--添加活动模块-->
+<div id="addActivity" style="display: none; padding: 1em;">
+    <form class="layui-form layui-form-pane" th:object="${activityAdd}" method="post" id="addForm">
+        <input type="text" name="id" autocomplete="off" class="layui-input" style="display: none;">
+        <!--活动名称-->
+        <div class="layui-form-item">
+            <label class="layui-form-label">活动名称</label>
+            <div class="layui-input-block">
+                <input type="text" name="name" required  lay-verify="required" placeholder="请输入活动名称" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <!--活动地点-->
+        <div class="layui-form-item">
+            <label class="layui-form-label">活动地点</label>
+            <div class="layui-input-block">
+                <input type="text" name="site" required  lay-verify="required" placeholder="请输入活动地点" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <!--开始时间-->
+        <div class="layui-form-item">
+            <label class="layui-form-label">开始时间</label>
+            <div class="layui-input-inline">
+                <input type="text" name="start" id="startAdd" required  lay-verify="required" placeholder="请选择开始时间" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <!--活动简介-->
+        <div class="layui-form-item">
+            <label class="layui-form-label">活动简介</label>
+            <div class="layui-input-block">
+                <!--<input type="text" name="qq" id="qq" required  lay-verify="required" placeholder="请输入QQ号" autocomplete="off" class="layui-input">-->
+                <textarea name="intro" placeholder="请输入简介内容" required lay-verify="required" class="layui-textarea" autocomplete="off"></textarea>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <!--lay-submit lay-filter="formDemo"-->
+                <button class="layui-btn" id="addSubmit">立即发布</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+</html>
