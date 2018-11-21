@@ -16,7 +16,9 @@ public class SessionConfiguration implements WebMvcConfigurer {
                         "/index",
                         "/logout/**",
                         "/css/**",
-                        "/js/**"
+                        "/js/**",
+                        "/cover/**",
+                        "/http://**"
                 );
     }
 }

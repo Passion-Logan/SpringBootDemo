@@ -15,11 +15,17 @@ public interface MemberService {
     void register(MemberEntity memberEntity);
 
     /**
+     * 获取所有会员
+     * @return
+     */
+    List<MemberEntity> all();
+
+    /**
      * 根据账号查询用户
      * @param account
      * @return
      */
-    Optional<MemberEntity> findByAccount(String account);
+    MemberEntity findByAccount(String account);
 
     /**
      * 根据编号查询用户

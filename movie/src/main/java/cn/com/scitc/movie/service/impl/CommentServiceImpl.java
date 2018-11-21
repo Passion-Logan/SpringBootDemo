@@ -26,37 +26,37 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public Optional<CommentEntity> findByContent(String content) {
+    public List<CommentEntity> findByContent(String content) {
         return commentJPA.findByContent(content);
     }
 
     @Override
-    public Optional<CommentEntity> findByFilmId(Integer filmId) {
+    public List<CommentEntity> findByFilmId(Integer filmId) {
         return commentJPA.findByFilmId(filmId);
     }
 
     @Override
-    public Optional<CommentEntity> findByMemberId(Integer memberId) {
+    public List<CommentEntity> findByMemberId(Integer memberId) {
         return commentJPA.findByMemberId(memberId);
     }
 
     @Override
-    public Optional<CommentEntity> findByFilmIdAndMemberIdAndContent(Integer filmId, Integer memberId, String content) {
+    public List<CommentEntity> findByFilmIdAndMemberIdAndContent(Integer filmId, Integer memberId, String content) {
         return commentJPA.findByFilmIdAndMemberIdAndContent(filmId, memberId, content);
     }
 
     @Override
-    public Optional<CommentEntity> findByFilmIdAndMemberId(Integer filmId, Integer memberId) {
+    public List<CommentEntity> findByFilmIdAndMemberId(Integer filmId, Integer memberId) {
         return commentJPA.findByFilmIdAndMemberId(filmId, memberId);
     }
 
     @Override
-    public Optional<CommentEntity> findByFilmIdAndContent(Integer filmId, String content) {
+    public List<CommentEntity> findByFilmIdAndContent(Integer filmId, String content) {
         return commentJPA.findByFilmIdAndContent(filmId, content);
     }
 
     @Override
-    public Optional<CommentEntity> findByMemberIdAndContent(Integer memberId, String content) {
+    public List<CommentEntity> findByMemberIdAndContent(Integer memberId, String content) {
         return commentJPA.findByMemberIdAndContent(memberId, content);
     }
 

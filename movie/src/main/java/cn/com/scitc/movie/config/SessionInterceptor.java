@@ -13,21 +13,13 @@ public class SessionInterceptor implements HandlerInterceptor {
 
         System.out.println(request.getRequestURI());
 
-        /*final String member = "/login/member";
-        final String admin = "/login/admin";
-        final String regist = "/regist/member";
-        final String index = "/index";
-        final String outadmin = "/logout/admin";
-        final String outmember = "/logout/member";*/
+        final String fetchFilm = "/film/fetchFilm";
+        final String fetchComment = "/comment/fetchComment";
+        final String fetchRate = "/film/fetchRate";
 
-        final String fetchList = "/film/fetchList";
 
-        //登录,注册，主页不做拦截
-        /*if(member.equals(request.getRequestURI()) || admin.equals(request.getRequestURI()) || regist.equals(request.getRequestURI()) || index.equals(request.getRequestURI()) || outadmin.equals(request.getRequestURI()) || outmember.equals(request.getRequestURI())) {
-            return true;
-        }*/
         //获取电影列表不做验证
-        if(fetchList.equals(request.getRequestURI())) {
+        if(fetchFilm.equals(request.getRequestURI()) || fetchComment.equals(request.getRequestURI()) || fetchRate.equals(request.getRequestURI())) {
             return true;
         }
 

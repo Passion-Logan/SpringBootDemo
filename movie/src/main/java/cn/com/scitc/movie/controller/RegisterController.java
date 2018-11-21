@@ -8,9 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 @RestController
 public class RegisterController {
@@ -18,14 +16,13 @@ public class RegisterController {
     @Autowired
     MemberService memberService;
 
+    static Map<String , Object> map = Collections.synchronizedMap(new HashMap<>());
+
     @RequestMapping("/regist/member")
     public Object regist(@Param("account")String account,
                          @Param("nickname")String nickname,
                          @Param("password")String password) {
-
-        Map<String, Object> map = new HashMap<>();
-
-        Optional<MemberEntity> memberEntity = memberService.findByAccount(account);
+        MemberEntity memberEntity = memberService.findByAccount(account);
 
         try {
             if(memberEntity != null) {

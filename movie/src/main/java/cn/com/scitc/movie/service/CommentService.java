@@ -24,35 +24,35 @@ public interface CommentService {
      * @param content
      * @return
      */
-    Optional<CommentEntity> findByContent(String content);
+    List<CommentEntity> findByContent(String content);
 
     /**
      * 根据电影编号获取影评
      * @param filmId
      * @return
      */
-    Optional<CommentEntity> findByFilmId(Integer filmId);
+    List<CommentEntity> findByFilmId(Integer filmId);
 
     /**
      * 根据会员编号获取影评
      * @param memberId
      * @return
      */
-    Optional<CommentEntity> findByMemberId(Integer memberId);
+    List<CommentEntity> findByMemberId(Integer memberId);
 
     /**
      * 根据电影编号，会员编号获取影评
      * @param filmId
      * @return
      */
-    Optional<CommentEntity> findByFilmIdAndMemberId(Integer filmId, Integer memberId);
+    List<CommentEntity> findByFilmIdAndMemberId(Integer filmId, Integer memberId);
 
     /**
      * 根据电影编号,内容获取影评
      * @param filmId
      * @return
      */
-    Optional<CommentEntity> findByFilmIdAndContent(Integer filmId, String content);
+    List<CommentEntity> findByFilmIdAndContent(Integer filmId, String content);
 
     /**
      * 根据会员编号和内容获取影评
@@ -60,14 +60,14 @@ public interface CommentService {
      * @param content
      * @return
      */
-    Optional<CommentEntity> findByMemberIdAndContent(Integer memberId, String content);
+    List<CommentEntity> findByMemberIdAndContent(Integer memberId, String content);
 
     /**
      * 根据电影编号，会员编号,影评内容 获取影评
      * @param filmId
      * @return
      */
-    Optional<CommentEntity> findByFilmIdAndMemberIdAndContent(Integer filmId, Integer memberId, String content);
+    List<CommentEntity> findByFilmIdAndMemberIdAndContent(Integer filmId, Integer memberId, String content);
 
     /**
      * 根据编号删除影评

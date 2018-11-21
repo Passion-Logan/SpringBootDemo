@@ -21,7 +21,12 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public Optional<MemberEntity> findByAccount(String account) {
+    public List<MemberEntity> all() {
+        return memberJPA.findAll();
+    }
+
+    @Override
+    public MemberEntity findByAccount(String account) {
         return memberJPA.findByAccount(account);
     }
 

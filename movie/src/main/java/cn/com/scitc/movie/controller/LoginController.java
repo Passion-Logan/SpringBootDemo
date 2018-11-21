@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 /**
  * 登录控制器
@@ -28,6 +26,8 @@ public class LoginController {
     @Autowired
     AdminJPA adminJPA;
 
+    static Map<String , Object> map = Collections.synchronizedMap(new HashMap<>());
+
     /**
      * 会员登录
      * @param account
@@ -39,9 +39,6 @@ public class LoginController {
     public Object member(@Param("account")String account,
                          @Param("password")String password,
                          HttpServletRequest request) {
-
-        Map<String , Object> map = new HashMap<>();
-
         //登录成功
         boolean flag = true;
         String msg = "登录成功!";
@@ -49,7 +46,7 @@ public class LoginController {
         String role = "ROOT_MEMBER";
 
         //根据账号查询用户是否存在
-        Optional<MemberEntity> memberEntity = memberJPA.findByAccount(account);
+        MemberEntity memberEntity = memberJPA.findByAccount(account);
 
         try {
             //用户不存在
@@ -62,7 +59,7 @@ public class LoginController {
                 map.put("msg", msg);
             }
             //密码错误
-            else if(!memberEntity.get().getPassword().equals(password)){
+            else if(!memberEntity.getPassword().equals(password)){
                 flag = false;
                 code = 1;
                 msg = "密码错误，登录失败！";
@@ -76,8 +73,8 @@ public class LoginController {
                 //将用户写入session
                 request.getSession().setAttribute("_session_user", memberEntity);
                 request.getSession().setAttribute("role", role);
-                request.getSession().setAttribute("account", memberEntity.get().getAccount());
-                request.getSession().setAttribute("nickname", memberEntity.get().getNickname());
+                request.getSession().setAttribute("account", memberEntity.getAccount());
+                request.getSession().setAttribute("nickname", memberEntity.getNickname());
 
                 map.put("code", code);
                 map.put("msg", msg);
@@ -101,8 +98,6 @@ public class LoginController {
     public Object admin(@Param("account")String account,
                          @Param("password")String password,
                          HttpServletRequest request) {
-        Map<String , Object> map = new HashMap<>();
-
         //登录成功
         boolean flag = true;
         String msg = "登录成功!";
@@ -153,8 +148,6 @@ public class LoginController {
      */
     @RequestMapping({"/logout/member", "/logout/admin"})
     public Object out(HttpServletRequest request) {
-        Map<String, Object> map = new HashMap<>();
-
         try {
             request.getSession().removeAttribute("_session_user");
         } catch (Exception e) {

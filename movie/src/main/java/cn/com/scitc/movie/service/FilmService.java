@@ -4,6 +4,7 @@ import cn.com.scitc.movie.entity.FilmEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface FilmService {
 
@@ -17,6 +18,13 @@ public interface FilmService {
      * 添加电影
      */
     void add(FilmEntity filmEntity);
+
+    /**
+     * 根据电影编号获取电影
+     * @param id
+     * @return
+     */
+    Optional<FilmEntity> findById(Integer id);
 
     /**
      * 根据电影名称查找

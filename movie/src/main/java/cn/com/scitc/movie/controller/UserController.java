@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,6 +17,8 @@ public class UserController {
 
     @Autowired
     MemberService memberService;
+
+    static Map<String , Object> map = Collections.synchronizedMap(new HashMap<>());
 
     /**
      * 通过session获取账户信息
@@ -30,9 +33,7 @@ public class UserController {
         Object account = request.getSession().getAttribute("account");
         Object nickname = request.getSession().getAttribute("nickname");
 
-        Map<String, Object> map = new HashMap<>();
-        Map<String, Object> entity = new HashMap<>();
-
+        Map<String, Object> entity = Collections.synchronizedMap(new HashMap<>());
 
         //用户已登录
         try {
@@ -55,6 +56,24 @@ public class UserController {
         return JSON.toJSONString(map);
     }
 
+    @RequestMapping("/member/fetchMember")
+    public Object fetchMember() {
+        Integer code = 0;
+        String msg = "获取成功";
+
+        try {
+            map.put("code", code);
+            map.put("data", memberService.all());
+        } catch (Exception e) {
+            e.printStackTrace();
+
+            map.put("code", 1);
+            map.put("msg", "你仿佛来到了荒芜的世界~");
+        }
+
+        return JSON.toJSONString(map);
+    }
+
     /**
      * 搜索用户
      * @param searchFeild 搜索字段，account、id、nickname
@@ -64,8 +83,6 @@ public class UserController {
     @RequestMapping("/member/searchMember")
     public Object searchMember(@Param("searchFeild")String searchFeild,
                                @Param("searchValue")String searchValue) {
-        Map<String , Object> map = new HashMap<>();
-
         Integer code = 0;
         String msg = "获取成功";
 

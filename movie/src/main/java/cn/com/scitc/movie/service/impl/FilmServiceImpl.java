@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FilmServiceImpl implements FilmService {
@@ -22,6 +23,11 @@ public class FilmServiceImpl implements FilmService {
     @Override
     public void add(FilmEntity filmEntity) {
         filmJPA.save(filmEntity);
+    }
+
+    @Override
+    public Optional<FilmEntity> findById(Integer id) {
+        return filmJPA.findById(id);
     }
 
     @Override
