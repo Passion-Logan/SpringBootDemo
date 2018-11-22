@@ -93,7 +93,7 @@ public class CommentController {
         Object role = request.getSession().getAttribute("role");
         MemberEntity member = memberService.findByAccount(String.valueOf(account));
 
-        if (!role.equals(admin)) {
+        if (role != null && !role.equals(admin)) {
             memberId = member.getId();
         }
 
