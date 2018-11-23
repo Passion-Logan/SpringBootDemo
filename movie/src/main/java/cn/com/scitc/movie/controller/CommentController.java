@@ -44,13 +44,13 @@ public class CommentController {
         Object account = request.getSession().getAttribute("account");
 
         try {
-            MemberEntity member = memberService.findByAccount(String.valueOf(account));
+            List<MemberEntity> member = memberService.findByAccount(String.valueOf(account));
 
             CommentEntity commentEntity = new CommentEntity();
             commentEntity.setFilmId(film_id);
             commentEntity.setContent(content);
             commentEntity.setRate(rate);
-            commentEntity.setMemberId(member.getId());
+            commentEntity.setMemberId(member.get(0).getId());
 
             commentService.addComment(commentEntity);
 
@@ -91,10 +91,10 @@ public class CommentController {
 
         Object account = request.getSession().getAttribute("account");
         Object role = request.getSession().getAttribute("role");
-        MemberEntity member = memberService.findByAccount(String.valueOf(account));
+        List<MemberEntity> member = memberService.findByAccount(String.valueOf(account));
 
         if (role != null && !role.equals(admin)) {
-            memberId = member.getId();
+            memberId = member.get(0).getId();
         }
 
         try {

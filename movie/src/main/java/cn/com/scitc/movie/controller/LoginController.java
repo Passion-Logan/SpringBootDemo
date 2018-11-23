@@ -46,11 +46,11 @@ public class LoginController {
         String role = "ROOT_MEMBER";
 
         //根据账号查询用户是否存在
-        MemberEntity memberEntity = memberJPA.findByAccount(account);
+        List<MemberEntity> memberEntity = memberJPA.findByAccount(account);
 
         try {
             //用户不存在
-            if(memberEntity == null) {
+            if(memberEntity == null && memberEntity.size() != 0) {
                 flag = false;
                 code = 1;
 
@@ -59,7 +59,7 @@ public class LoginController {
                 map.put("msg", msg);
             }
             //密码错误
-            else if(!memberEntity.getPassword().equals(password)){
+            else if(!memberEntity.get(0).getPassword().equals(password)){
                 flag = false;
                 code = 1;
                 msg = "密码错误，登录失败！";
@@ -73,8 +73,8 @@ public class LoginController {
                 //将用户写入session
                 request.getSession().setAttribute("_session_user", memberEntity);
                 request.getSession().setAttribute("role", role);
-                request.getSession().setAttribute("account", memberEntity.getAccount());
-                request.getSession().setAttribute("nickname", memberEntity.getNickname());
+                request.getSession().setAttribute("account", memberEntity.get(0).getAccount());
+                request.getSession().setAttribute("nickname", memberEntity.get(0).getNickname());
 
                 map.put("code", code);
                 map.put("msg", msg);

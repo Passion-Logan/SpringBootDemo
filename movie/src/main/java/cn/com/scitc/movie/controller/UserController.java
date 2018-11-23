@@ -56,7 +56,7 @@ public class UserController {
         return JSON.toJSONString(map);
     }
 
-    @RequestMapping("/member/fetchMember")
+/*    @RequestMapping("/member/fetchMember")
     public Object fetchMember() {
         Integer code = 0;
         String msg = "获取成功";
@@ -72,7 +72,7 @@ public class UserController {
         }
 
         return JSON.toJSONString(map);
-    }
+    }*/
 
     /**
      * 搜索用户
@@ -80,7 +80,7 @@ public class UserController {
      * @param searchValue 搜索内容
      * @return
      */
-    @RequestMapping("/member/searchMember")
+    @RequestMapping("/member/fetchMember")
     public Object searchMember(@Param("searchFeild")String searchFeild,
                                @Param("searchValue")String searchValue) {
         Integer code = 0;
@@ -106,8 +106,8 @@ public class UserController {
                     map.put("data", memberService.findByNickname(searchValue));
                 }
             }else {
-                map.put("code", 1);
-                map.put("msg", "内容不能为空！");
+                map.put("code", code);
+                map.put("data", memberService.all());
             }
         } catch (NumberFormatException e) {
             e.printStackTrace();

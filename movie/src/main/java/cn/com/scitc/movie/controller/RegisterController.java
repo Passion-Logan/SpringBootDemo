@@ -22,10 +22,10 @@ public class RegisterController {
     public Object regist(@Param("account")String account,
                          @Param("nickname")String nickname,
                          @Param("password")String password) {
-        MemberEntity memberEntity = memberService.findByAccount(account);
+        List<MemberEntity> memberEntity = memberService.findByAccount(account);
 
         try {
-            if(memberEntity != null) {
+            if(memberEntity != null && memberEntity.size() != 0) {
                 map.put("code", 1);
                 map.put("msg", "注册失败，该账户已被注册！");
             }else {

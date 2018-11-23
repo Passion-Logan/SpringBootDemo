@@ -13,12 +13,12 @@ public interface MemberJPA extends JpaRepository<MemberEntity, Integer> {
      * @param account
      * @return
      */
-    MemberEntity findByAccount(String account);
+    List<MemberEntity> findByAccount(String account);
 
     /**
      * 根据 昵称查询用户
      * @param nickname
      * @return
      */
-    Optional<MemberEntity> findByNickname(String nickname);
+    List<MemberEntity> findByNickname(String nickname);
 }

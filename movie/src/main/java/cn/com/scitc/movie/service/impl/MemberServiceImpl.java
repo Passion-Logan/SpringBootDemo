@@ -26,7 +26,7 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public MemberEntity findByAccount(String account) {
+    public List<MemberEntity> findByAccount(String account) {
         return memberJPA.findByAccount(account);
     }
 
@@ -36,7 +36,7 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public Optional<MemberEntity> findByNickname(String nickname) {
+    public List<MemberEntity> findByNickname(String nickname) {
         return memberJPA.findByNickname(nickname);
     }
 

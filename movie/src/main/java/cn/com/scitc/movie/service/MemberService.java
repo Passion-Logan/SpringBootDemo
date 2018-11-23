@@ -25,7 +25,7 @@ public interface MemberService {
      * @param account
      * @return
      */
-    MemberEntity findByAccount(String account);
+    List<MemberEntity> findByAccount(String account);
 
     /**
      * 根据编号查询用户
@@ -39,7 +39,7 @@ public interface MemberService {
      * @param nickname
      * @return
      */
-    Optional<MemberEntity> findByNickname(String nickname);
+    List<MemberEntity> findByNickname(String nickname);
 
     /**
      * 添加会员
