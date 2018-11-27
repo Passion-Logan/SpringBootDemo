@@ -31,7 +31,7 @@
         <ul class="layui-nav" lay-filter="side-top-left">
             <!--成员管理-->
             <li class="layui-nav-item" sec:authorize="hasAnyRole('ROLE_USER','ROLE_ZHUXI','ROLE_FUZHUXI','ROLE_TUAN','ROLE_JISHU','ROLE_FUJISHU','ROLE_HUODONG','ROLE_FUHUODONG','ROLE_ZUZHI','ROLE_FUZUZHI')"><a href="javascript:;" href-url="page/allUsers">协会成员</a></li>
-            <li class="layui-nav-item layui-this" sec:authorize="hasAnyRole('ROLE_ROOT')">
+            <li class="layui-nav-item layui-this" sec:authorize="hasAnyRole('ROLE_ROOT','ROLE_ZHUXI','ROLE_FUZHUXI')">
                 <a href="javascript:;">协会成员</a>
                 <dl class="layui-nav-child">
                     <dd><a href="javascript:;" href-url="page/allUsers" style="text-align: center;">成员列表</a></dd>
@@ -41,7 +41,7 @@
 
             <!--<li class="layui-nav-item" sec:authorize="hasAnyRole('ROLE_USER','ROLE_ROOT')"><a href="javascript:;" href-url="page/btn.html">协会活动</a></li>-->
             <li class="layui-nav-item" sec:authorize="hasAnyRole('ROLE_USER','ROLE_ZHUXI','ROLE_FUZHUXI','ROLE_TUAN','ROLE_JISHU','ROLE_FUJISHU','ROLE_HUODONG','ROLE_FUHUODONG','ROLE_ZUZHI','ROLE_FUZUZHI')"><a href="javascript:;" href-url="/activity">协会活动</a></li>
-            <li class="layui-nav-item layui-this" sec:authorize="hasAnyRole('ROLE_ROOT')">
+            <li class="layui-nav-item layui-this" sec:authorize="hasAnyRole('ROLE_ROOT','ROLE_ZHUXI','ROLE_FUZHUXI','ROLE_TUAN','ROLE_JISHU','ROLE_FUJISHU','ROLE_HUODONG','ROLE_FUHUODONG','ROLE_ZUZHI','ROLE_FUZUZHI')">
                 <a href="javascript:;">协会活动</a>
                 <dl class="layui-nav-child">
                     <dd><a href="javascript:;" href-url="/activity" style="text-align: center;">活动列表</a></dd>
@@ -50,7 +50,7 @@
             </li>
 
             <li class="layui-nav-item" sec:authorize="hasAnyRole('ROLE_USER','ROLE_ZHUXI','ROLE_FUZHUXI','ROLE_TUAN','ROLE_JISHU','ROLE_FUJISHU','ROLE_HUODONG','ROLE_FUHUODONG','ROLE_ZUZHI','ROLE_FUZUZHI')"><a href="javascript:;" href-url="/words">留言板</a></li>
-            <li class="layui-nav-item layui-this" sec:authorize="hasAnyRole('ROLE_ROOT')">
+            <li class="layui-nav-item layui-this" sec:authorize="hasAnyRole('ROLE_ROOT','ROLE_ZHUXI','ROLE_FUZHUXI','ROLE_ZUZHI','ROLE_FUZUZHI')">
                 <a href="javascript:;">留言板</a>
                 <dl class="layui-nav-child">
                     <dd><a href="javascript:;" href-url="/words" style="text-align: center;">留言列表</a></dd>
