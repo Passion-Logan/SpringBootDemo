@@ -32,8 +32,9 @@ public class readFile {
         count(tmp);
         System.out.println("=============字符数组方法=============");
         charCount(tmp);
+        System.out.println("=============不同类型商品根据价格排序=============");
+        System.out.println("类型:" + tmp);
 
-        /*System.out.println("=============不同类型商品根据价格排序=============");*/
     }
 
 
