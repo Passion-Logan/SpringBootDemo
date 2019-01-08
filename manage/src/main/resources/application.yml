@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://aysne.me:7306/manage?characterEncoding=UTF-8&useSSL=false
+    url: jdbc:mysql://localhost:7306/manage?characterEncoding=UTF-8&useSSL=false
     username: root
-    password: bplong2018
+    password: root
     tomcat:
       initial-size: 1
       max-active: 20
