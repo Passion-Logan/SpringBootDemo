@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demomybatis.mapper.UserMapper" >
+    <resultMap id="BaseResultMap" type="com.example.demomybatis.entity.UserEntity" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="age" property="age" jdbcType="INTEGER" />
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+        id, name, age
+    </sql>
+
+    <select id="getAll" resultMap="BaseResultMap"  >
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM user
+    </select>
+
+    <select id="getOne" parameterType="java.lang.Integer" resultMap="BaseResultMap" >
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM user
+        WHERE id = #{id}
+    </select>
+
+    <!--<insert id="insert" parameterType="com.example.demomybatis.entity.UserEntity" >-->
+        <!--INSERT INTO-->
+        <!--user-->
+        <!--(id,name,age)-->
+        <!--VALUES-->
+        <!--(#{id}, #{name}, #{age})-->
+    <!--</insert>-->
+
+    <!--<update id="update" parameterType="com.example.demomybatis.entity.UserEntity" >-->
+        <!--UPDATE-->
+        <!--user-->
+        <!--SET-->
+        <!--<if test="id != null">id = #{id},</if>-->
+        <!--<if test="name != null">name = #{name},</if>-->
+        <!--age = #{age}-->
+        <!--WHERE-->
+        <!--id = #{id}-->
+    <!--</update>-->
+
+    <delete id="delete" parameterType="java.lang.Integer" >
+        DELETE FROM
+        user
+        WHERE
+        id =#{id}
+    </delete>
+
+</mapper>
