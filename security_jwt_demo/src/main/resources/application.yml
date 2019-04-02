@@ -1,0 +1,17 @@
+#datasource
+spring:
+  datasource:
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/security?&useSSL=false
+#mybatis
+mybatis:
+  config-location: classpath:/mybatis-config.xml
+#jwt
+jwt:
+  header: Authorization
+  secret: mySecret
+  #token有效期一天
+  expiration: 86400
+  tokenHead: "Bearer "
