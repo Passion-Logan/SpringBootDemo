@@ -35,6 +35,12 @@ public class UserDetail implements UserDetails
         this.role = role;
     }
 
+    public UserDetail(String username, String password, Role role) {
+        this.username = username;
+        this.password = password;
+        this.role = role;
+    }
+
     public UserDetail(long id, String username, String password)
     {
         this.id = id;
