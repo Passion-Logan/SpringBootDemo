@@ -3,6 +3,7 @@ package com.cody.demo.service.impl;
 import com.cody.demo.dao.entity.Role;
 import com.cody.demo.dao.entity.UserDetail;
 import com.cody.demo.mapper.DemoMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.parameters.P;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -22,7 +23,6 @@ import org.springframework.stereotype.Component;
 @Component(value = "CustomUserDetailsService")
 public class CustomUserDetailsServiceImpl implements UserDetailsService
 {
-
     private final DemoMapper demoMapper;
 
     public CustomUserDetailsServiceImpl(DemoMapper demoMapper)

@@ -3,6 +3,7 @@ package com.cody.demo.mapper;
 import com.cody.demo.dao.entity.Role;
 import com.cody.demo.dao.entity.UserDetail;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 /**

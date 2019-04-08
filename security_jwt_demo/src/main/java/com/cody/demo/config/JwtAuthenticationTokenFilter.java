@@ -21,7 +21,7 @@ import java.io.IOException;
  * @File Name: com.cody.demo.config
  * @Author: WQL //作者及
  * @Date: 2019/4/2 17:01//完成日期
- * @Description: // 描述
+ * @Description: // token校验
  * @Version: v0.0.1 // 版本信息
  * @Function List: // 主要函数及其功能
  * @Others: // 其它内容的说明

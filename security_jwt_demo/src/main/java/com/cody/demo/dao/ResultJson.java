@@ -1,5 +1,6 @@
 package com.cody.demo.dao;
 
+import lombok.Data;
 import sun.plugin2.message.Serializer;
 
 import java.io.Serializable;
@@ -14,6 +15,7 @@ import java.io.Serializable;
  * @Others: // 其它内容的说明
  * @History: // 历史修改记录
  */
+@Data
 public class ResultJson<T> implements Serializable
 {
     private static final long serialVersionUID = 783015033603078674L;
