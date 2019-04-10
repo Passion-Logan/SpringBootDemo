@@ -23,6 +23,7 @@ import org.springframework.stereotype.Component;
 @Component(value = "CustomUserDetailsService")
 public class CustomUserDetailsServiceImpl implements UserDetailsService
 {
+    @Autowired
     private final DemoMapper demoMapper;
 
     public CustomUserDetailsServiceImpl(DemoMapper demoMapper)

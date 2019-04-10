@@ -1,7 +1,6 @@
 package com.cody.demo.dao.entity;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
 import javax.validation.constraints.Size;
 
@@ -17,6 +16,8 @@ import javax.validation.constraints.Size;
  */
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class User
 {
     @Size(min = 1, max = 20)

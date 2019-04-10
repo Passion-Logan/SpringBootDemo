@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cody.demo.mapper.DemoMapper">
+
     <select id="findByUsername" resultType="com.cody.demo.dao.entity.UserDetail">
         SELECT id, name, password from sys_user where name = #{name};
     </select>
 
-    <insert id="insert" parameterType="com.example.auth.demo.dao.entity.UserDetail" useGeneratedKeys="true" keyProperty="id">
+    <insert id="insert" parameterType="com.cody.demo.dao.entity.UserDetail" useGeneratedKeys="true" keyProperty="id">
         insert into sys_user (name, password) VALUES (#{username}, #{password});
     </insert>
 
@@ -15,11 +14,11 @@
         insert into sys_user_role (user_id, role_id) VALUES (#{userId}, #{roleId});
     </insert>
 
-    <select id="findRoleById" resultType="com.example.demo.dao.entity.Role">
+    <select id="findRoleById" resultType="com.cody.demo.dao.entity.Role">
       select id, name, nameZh from sys_role where id = #{roleId}
     </select>
 
-    <select id="findRoleByUserId" resultType="com.example.demo.dao.entity.Role">
+    <select id="findRoleByUserId" resultType="com.cody.demo.dao.entity.Role">
         select * from sys_role where id in (SELECT role_id from sys_user_role where user_id = #{userId});
     </select>
 </mapper>
