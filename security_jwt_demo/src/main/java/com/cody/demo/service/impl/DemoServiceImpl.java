@@ -85,7 +85,7 @@ public class DemoServiceImpl implements DemoService
         final String token = jwtUtils.generateAccessToken(userDetail);
         // 存储token
         jwtUtils.putToken(username, token);
-        return new ResponseUserToken(token, userDetail);
+        return new ResponseUserToken(tokenHead + token, userDetail);
     }
 
     @Override

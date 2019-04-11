@@ -30,7 +30,7 @@ import javax.validation.Valid;
  * @History: // 历史修改记录
  */
 @RestController
-@Api(description = "登陆注册及刷新token")
+@Api(description = "登陆注册")
 @RequestMapping("/api/demo")
 public class DemoController
 {
@@ -123,15 +123,15 @@ public class DemoController
      * @param request
      * @return
      */
-    @GetMapping(value = "refresh")
-    public ResultJson refreshAndGetAuthenticationToken(
-            HttpServletRequest request){
-        String token = request.getHeader(tokenHeader);
-        ResponseUserToken response = demoService.refresh(token);
-        if(response == null) {
-            return ResultJson.failure(ResultCode.BAD_REQUEST, "token无效");
-        } else {
-            return ResultJson.ok(response);
-        }
-    }
+//    @GetMapping(value = "refresh")
+//    public ResultJson refreshAndGetAuthenticationToken(
+//            HttpServletRequest request){
+//        String token = request.getHeader(tokenHeader);
+//        ResponseUserToken response = demoService.refresh(token);
+//        if(response == null) {
+//            return ResultJson.failure(ResultCode.BAD_REQUEST, "token无效");
+//        } else {
+//            return ResultJson.ok(response);
+//        }
+//    }
 }

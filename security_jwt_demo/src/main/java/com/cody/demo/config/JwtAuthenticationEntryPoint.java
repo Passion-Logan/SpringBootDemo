@@ -41,6 +41,5 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint, Se
         String body = ResultJson.failure(ResultCode.UNAUTHORIZED, e.getMessage()).toString();
         printWriter.write(body);
         printWriter.flush();
-
     }
 }
