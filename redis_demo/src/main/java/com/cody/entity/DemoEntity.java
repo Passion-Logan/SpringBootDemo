@@ -1,6 +1,8 @@
 package com.cody.entity;
 
-public class DemoEntity
+import java.io.Serializable;
+
+public class DemoEntity implements Serializable
 {
     private String id;
 
