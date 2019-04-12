@@ -80,6 +80,14 @@
                     <!-- 是否覆盖 -->
                     <overwrite>true</overwrite>
                 </configuration>
+                <!-- 防止mybatis找不到driver -->
+                <dependencies>
+                    <dependency>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <version>8.0.11</version>
+                    </dependency>
+                </dependencies>
             </plugin>
 		</plugins>
 	</build>
