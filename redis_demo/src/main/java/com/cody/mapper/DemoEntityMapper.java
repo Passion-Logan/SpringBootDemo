@@ -5,13 +5,13 @@ import com.cody.dao.entity.DemoEntity;
 import java.util.List;
 
 public interface DemoEntityMapper {
-    int deleteByPrimaryKey(String id);
+    int deleteByPrimaryKey(int id);
 
     int insert(DemoEntity record);
 
     int insertSelective(DemoEntity record);
 
-    DemoEntity selectByPrimaryKey(String id);
+    DemoEntity selectByPrimaryKey(int id);
 
     int updateByPrimaryKeySelective(DemoEntity record);
 

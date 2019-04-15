@@ -1,5 +1,7 @@
 package com.cody.dao;
 
+import lombok.Data;
+
 import java.io.Serializable;
 
 /**
@@ -12,6 +14,7 @@ import java.io.Serializable;
  * @Others: // 其它内容的说明
  * @History: // 历史修改记录
  */
+@Data
 public class ResultJson<T> implements Serializable
 {
     private int code;

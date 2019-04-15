@@ -4,18 +4,18 @@ import java.io.Serializable;
 
 public class DemoEntity implements Serializable
 {
-    private String id;
+    private Integer id;
 
     private String name;
 
     private Integer age;
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {

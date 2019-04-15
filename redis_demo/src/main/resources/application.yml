@@ -2,7 +2,7 @@
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/redis_demo?useSSL=false&serverTimezone=UTC
     username: root
     password: root
@@ -35,7 +35,7 @@ spring:
       # Redis 服务器连接端口
       port: 6379
       # Redis 服务器连接密码（默认为空）
-      password: 123456
+#      password:
       pool:
         # 连接池最大连接数（使用负值表示没有限制）
         max-active: 8
@@ -48,7 +48,9 @@ spring:
       # 连接超时时间（毫秒）
       timeout: 0
 # mybatis 相关
-# 开启驼峰转换
 mybatis:
   configuration:
+    # 开启驼峰转换
     map-underscore-to-camel-case: true
+    # 控制是否打印SQL
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
