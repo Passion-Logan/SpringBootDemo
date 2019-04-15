@@ -1,4 +1,4 @@
-package com.cody.entity;
+package com.cody.dao.entity;
 
 import java.io.Serializable;
 

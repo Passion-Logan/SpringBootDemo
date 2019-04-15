@@ -1,6 +1,8 @@
 package com.cody.mapper;
 
-import com.cody.entity.DemoEntity;
+import com.cody.dao.entity.DemoEntity;
+
+import java.util.List;
 
 public interface DemoEntityMapper {
     int deleteByPrimaryKey(String id);
@@ -14,4 +16,7 @@ public interface DemoEntityMapper {
     int updateByPrimaryKeySelective(DemoEntity record);
 
     int updateByPrimaryKey(DemoEntity record);
+
+    List<DemoEntity> getUsers();
+
 }
