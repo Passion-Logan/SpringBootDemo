@@ -8,6 +8,7 @@ public class HelloRoman {
     	String rule = "set size [1-9][0-9]*";
     	String regex = "M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})";
     	String input = "";
+		// 添加默认字号
     	int size = 1;
     	
     	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
