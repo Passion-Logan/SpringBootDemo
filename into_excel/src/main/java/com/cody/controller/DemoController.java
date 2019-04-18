@@ -1,14 +1,16 @@
 package com.cody.controller;
 
 import com.cody.entity.UserEntity;
-import com.cody.jpa.UserJPA;
 import com.cody.service.UserService;
 import org.apache.poi.hssf.usermodel.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedOutputStream;
@@ -32,15 +34,24 @@ public class DemoController
 {
 
     @Autowired
-    private UserJPA userJPA;
-
-    @Autowired
     private UserService userService;
 
     @RequestMapping("")
-    public String demo()
+    public ModelAndView demo(Model model)
     {
-        return "demo";
+        List<UserEntity> list = userService.findAll();
+
+        model.addAttribute("allUser", list);
+        model.addAttribute("result", "用户信息表");
+
+        return new ModelAndView("demo", "userModel", model);
+    }
+
+    @RequestMapping(value = "/del/{id}")
+    public ModelAndView deleteUser(@PathVariable("id") long id) {
+        userService.deleteById(id);
+
+        return new ModelAndView("redirect:/");
     }
 
     /**
@@ -52,7 +63,7 @@ public class DemoController
     @RequestMapping(value = "export")
     public void export(HttpServletResponse response) throws IOException
     {
-        List<UserEntity> list = userJPA.findAll();
+        List<UserEntity> list = userService.findAll();
         //声明一个工作薄
         HSSFWorkbook workbook = new HSSFWorkbook();
         //创建一个Excel表单,参数为sheet的名字
@@ -63,10 +74,9 @@ public class DemoController
         HSSFRow hssfRow = sheet.createRow(1);
         for (UserEntity entity : list)
         {
-            hssfRow.createCell(0).setCellValue(entity.getId());
-            hssfRow.createCell(1).setCellValue(entity.getName());
-            hssfRow.createCell(2).setCellValue(entity.getAge());
-            hssfRow.createCell(3).setCellValue(entity.getTel());
+            hssfRow.createCell(0).setCellValue(entity.getName());
+            hssfRow.createCell(1).setCellValue(entity.getAge());
+            hssfRow.createCell(2).setCellValue(entity.getTel());
         }
         String fileName = "用户名单.xls";
         //清空response
@@ -97,7 +107,7 @@ public class DemoController
 
         if (save != null)
         {
-            userJPA.saveAll(save);
+            userService.saveList(save);
         }
 
         return "redirect:/";
@@ -120,10 +130,10 @@ public class DemoController
         style.setFont(font);
         style.setAlignment(HSSFCellStyle.ALIGN_CENTER);
         // 导出的Excel头部
-        String[] headers = { "编号", "姓名", "年龄", "联系方式"};
+        String[] headers = { "姓名", "年龄", "联系方式"};
         // 设置表格默认列宽度为15个字节
         sheet.setDefaultColumnWidth((short) 16);
-        for (short i = 0; i < headers.length; i++) {
+        for (int i = 0; i < headers.length; i++) {
             HSSFCell cell = row.createCell(i);
             HSSFRichTextString text = new HSSFRichTextString(headers[i]);
             cell.setCellValue(text);

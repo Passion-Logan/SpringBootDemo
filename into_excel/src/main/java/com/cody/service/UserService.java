@@ -18,4 +18,10 @@ import java.util.List;
 public interface UserService
 {
     List<UserEntity> importExcel(String fileName, MultipartFile file) throws Exception;
+
+    List<UserEntity> saveList(List<UserEntity> list);
+
+    void deleteById(Long id);
+
+    List<UserEntity> findAll();
 }

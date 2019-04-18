@@ -1,13 +1,35 @@
-<!doctype html>
-<html lang="zh-CN">
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.thymeleaf.org" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>Document</title>
 </head>
 <body>
+    <h1 th:text="${userModel.result}"></h1>
+    <table border="1">
+        <thead>
+        <tr>
+            <td>id</td>
+            <td>姓名</td>
+            <td>年龄</td>
+            <td>联系方式</td>
+            <td>操作</td>
+        </tr>
+        </thead>
+        <tr th:if="${userModel.allUser.size()} eq 0">
+            <td colspan="5">没有用户信息</td>
+        </tr>
+        <tbody id="tbody">
+        <tr th:each="user : ${userModel.allUser}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.name}">></td>
+            <td th:text="${user.age}"></td>
+            <td th:text="${user.tel}"></td>
+
+            <td><a th:href="@{'/del/' + ${user.id}}">删除</a></td>
+        </tr>
+        </tbody>
+    </table>
     <h1>poi导入导出ExcelDemo</h1>
     <button onclick="exportExcel()">导出Excel</button>
     <form action="/import" enctype="multipart/form-data" method="post">

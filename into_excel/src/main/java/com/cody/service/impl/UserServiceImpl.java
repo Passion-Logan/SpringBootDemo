@@ -1,11 +1,13 @@
 package com.cody.service.impl;
 
 import com.cody.entity.UserEntity;
+import com.cody.jpa.UserJPA;
 import com.cody.service.UserService;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -26,6 +28,9 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService
 {
+
+    @Autowired
+    private UserJPA userJPA;
 
     @Override
     public List<UserEntity> importExcel(String fileName, MultipartFile file) throws Exception
@@ -56,15 +61,33 @@ public class UserServiceImpl implements UserService
                 entity = new UserEntity();
                 // 获得第 j 行
                 HSSFRow row = sheet.getRow(j);
-                entity.setId(Integer.parseInt(row.getCell(0).toString()));
-                entity.setName(row.getCell(1).toString());
-                entity.setAge(Long.parseLong(row.getCell(2).toString()));
-                entity.setTel(row.getCell(3).toString());
+                entity.setName(row.getCell(0).toString());
+                String age = row.getCell(1).toString();
+                entity.setAge(Long.parseLong(age.substring(0,age.indexOf("."))));
+                entity.setTel(row.getCell(2).toString());
 
                 list.add(entity);
             }
         }
 
         return list;
+    }
+
+    @Override
+    public List<UserEntity> saveList(List<UserEntity> list)
+    {
+        return userJPA.saveAll(list);
+    }
+
+    @Override
+    public void deleteById(Long id)
+    {
+        userJPA.deleteById(id);
+    }
+
+    @Override
+    public List<UserEntity> findAll()
+    {
+        return userJPA.findAll();
     }
 }
