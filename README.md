@@ -22,6 +22,10 @@ SpringBoot 1.5.6版本整合oauth2.0、security、
 
 使用druid连接池组件连接MySQL
 
+###### upload_demo
+
+文件上传Demo
+
 ###### redis_demo
 
 SpringBoot1.5.6版本整合redis,
