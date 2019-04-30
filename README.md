@@ -26,6 +26,10 @@ SpringBoot 1.5.6版本整合oauth2.0、security、
 
 文件上传Demo
 
+###### quartz_demo
+
+SpringBoot1.5.6版本整合quart完成定时任务分布式单节点持久化
+
 ###### redis_demo
 
 SpringBoot1.5.6版本整合redis,
