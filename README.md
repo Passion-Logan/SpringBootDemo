@@ -80,7 +80,9 @@ Java Io流操作的Demo
 
 数字要求为液晶显示屏的数字，数字大小可设置size；输入eixt则退出。
 
-###### stream_8
+###### Java_8
+
+Java8新特性的Demo
 
 
 
