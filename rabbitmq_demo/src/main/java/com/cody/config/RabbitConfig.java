@@ -1,6 +1,7 @@
 package com.cody.config;
 
-import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.core.*;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -17,8 +18,8 @@ import org.springframework.context.annotation.Configuration;
 public class RabbitConfig
 {
 
+    @Bean
     public Queue helloQueue() {
         return new Queue("hello");
     }
-
 }
