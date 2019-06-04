@@ -44,6 +44,10 @@ SpringBoot1.5.6版本整合redis,
 
 添加统一返回格式
 
+###### rabbitmq_demo
+
+SpringBoot简单整合RabbitMQ
+
 ###### security_jwt_demo
 
 SpringBoot整合security、jwt实现登录鉴权
