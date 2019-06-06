@@ -1,5 +1,7 @@
 package com.cody.service;
 
+import com.cody.entity.ProductEntity;
+import com.cody.entity.ProductRobbingRecordEntity;
 import com.cody.mapper.ProductEntityMapper;
 import com.cody.mapper.ProductRobbingRecordEntityMapper;
 import org.slf4j.Logger;
@@ -31,5 +33,38 @@ public class ConcurrencyService
     @Autowired
     private ProductRobbingRecordEntityMapper productRobbingRecordMapper;
 
+    /**
+     * 处理抢单
+     * @param mobile
+     */
+    public void manageRobbing(String mobile){
+        /*try {
+            Product product=productMapper.selectByProductNo(ProductNo);
+            if (product!=null && product.getTotal()>0){
+                log.info("当前手机号：{} 恭喜您抢到单了!",mobile);
+                productMapper.updateTotal(product);
+            }else{
+                log.error("当前手机号：{} 抢不到单!",mobile);
 
+            }
+        }catch (Exception e){
+            log.error("处理抢单发生异常：mobile={} ",mobile);
+        }*/ //--v1.0
+
+        //+v2.0
+        try {
+            ProductEntity product = productMapper.selectByProductNo(ProductNo);
+            if (product!=null && product.getTotal()>0){
+                int result=productMapper.updateTotal(product);
+                if (result>0) {
+                    ProductRobbingRecordEntity entity=new ProductRobbingRecordEntity();
+                    entity.setMobile(mobile);
+                    entity.setProductId(product.getId());
+                    productRobbingRecordMapper.insertSelective(entity);
+                }
+            }
+        }catch (Exception e){
+            log.error("处理抢单发生异常：mobile={} ",mobile);
+        }
+    }
 }
