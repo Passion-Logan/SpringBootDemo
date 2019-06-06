@@ -34,6 +34,13 @@ spring:
     password: guest
   application:
     name: rabbitmq-plus
+  # mail 相关
+  mail:
+    host: smtp.qq.com
+    port: 465
+    username: 280767840@qq.com
+    password: didxobmmyzaibicf
+    protocol: smtp
 # mybatis 相关
 mybatis:
   configuration:
