@@ -1,5 +1,7 @@
 package com.cody.config;
 
+import com.cody.dto.UserOrderDto;
+import com.cody.mapper.UserOrderEntityMapper;
 import com.cody.rabbitmq.SimpleListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -193,7 +195,8 @@ public class RabbitConfig
         return BindingBuilder.bind(userOrderQueue()).to(userOrderExchange()).with(env.getProperty("user.order.routing.key.name"));
     }
 
-    
+
+
 
 
 
