@@ -163,8 +163,37 @@ public class RabbitConfig
         container.setConnectionFactory(connectionFactory);
         container.setMessageConverter(new Jackson2JsonMessageConverter());
 
+        //TODO：并发配置
+        container.setConcurrentConsumers(env.getProperty("spring.rabbitmq.listener.concurrency",Integer.class));
+        container.setMaxConcurrentConsumers(env.getProperty("spring.rabbitmq.listener.max-concurrency",Integer.class));
+        container.setPrefetchCount(env.getProperty("spring.rabbitmq.listener.prefetch",Integer.class));
 
+        //TODO：消息确认-确认机制种类
+        container.setAcknowledgeMode(AcknowledgeMode.MANUAL);
+        container.setQueues(simpleQueue);
+        container.setMessageListener(simpleListener);
+
+        return container;
     }
+
+    //TODO：用户商城抢单实战
+
+    @Bean(name = "userOrderQueue")
+    public Queue userOrderQueue(){
+        return new Queue(env.getProperty("user.order.queue.name"),true);
+    }
+
+    @Bean
+    public TopicExchange userOrderExchange(){
+        return new TopicExchange(env.getProperty("user.order.exchange.name"),true,false);
+    }
+
+    @Bean
+    public Binding userOrderBinding(){
+        return BindingBuilder.bind(userOrderQueue()).to(userOrderExchange()).with(env.getProperty("user.order.routing.key.name"));
+    }
+
+    
 
 
 
