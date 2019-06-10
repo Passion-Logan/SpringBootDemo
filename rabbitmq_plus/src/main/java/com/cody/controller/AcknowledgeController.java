@@ -1,4 +1,4 @@
-package com.cody;
+package com.cody.controller;
 
 import com.cody.dto.User;
 import com.cody.response.BaseResponse;
