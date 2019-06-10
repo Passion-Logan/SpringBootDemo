@@ -1,7 +1,9 @@
 package com.cody.mapper;
 
 import com.cody.entity.OrderReportEntity;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface OrderReportEntityMapper {
     int deleteByPrimaryKey(Integer id);
 

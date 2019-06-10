@@ -2,7 +2,9 @@ package com.cody.mapper;
 
 import com.cody.entity.ProductEntity;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface ProductEntityMapper {
     int deleteByPrimaryKey(Integer id);
 

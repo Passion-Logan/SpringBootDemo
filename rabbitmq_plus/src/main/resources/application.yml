@@ -1,4 +1,4 @@
-# databaseÏà¹Ø
+# databaseç›¸å…³
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
@@ -6,16 +6,16 @@ spring:
     url: jdbc:mysql://localhost:3306/rabbitmq?useSSL=false&serverTimezone=UTC
     username: root
     password: root
-    #×î´ó»îÔ¾Êı
+    #æœ€å¤§æ´»è·ƒæ•°
     maxActive: 20
-    #³õÊ¼»¯ÊıÁ¿
+    #åˆå§‹åŒ–æ•°é‡
     initialSize: 1
-    #×î´óÁ¬½ÓµÈ´ı³¬Ê±Ê±¼ä
+    #æœ€å¤§è¿æ¥ç­‰å¾…è¶…æ—¶æ—¶é—´
     maxWait: 60000
-    #´ò¿ªPSCache£¬²¢ÇÒÖ¸¶¨Ã¿¸öÁ¬½ÓPSCacheµÄ´óĞ¡
+    #æ‰“å¼€PSCacheï¼Œå¹¶ä¸”æŒ‡å®šæ¯ä¸ªè¿æ¥PSCacheçš„å¤§å°
     poolPreparedStatements: true
     maxPoolPreparedStatementPerConnectionSize: 20
-    #Í¨¹ıconnectionPropertiesÊôĞÔÀ´´ò¿ªmergeSql¹¦ÄÜ£»ÂıSQL¼ÇÂ¼
+    #é€šè¿‡connectionPropertieså±æ€§æ¥æ‰“å¼€mergeSqlåŠŸèƒ½ï¼›æ…¢SQLè®°å½•
     #connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
     minIdle: 1
     timeBetweenEvictionRunsMillis: 60000
@@ -24,27 +24,27 @@ spring:
     testWhileIdle: true
     testOnBorrow: false
     testOnReturn: false
-    #ÅäÖÃ¼à¿ØÍ³¼ÆÀ¹½ØµÄfilters£¬È¥µôºó¼à¿Ø½çÃæsql½«ÎŞ·¨Í³¼Æ,'wall'ÓÃÓÚ·À»ğÇ½
+    #é…ç½®ç›‘æ§ç»Ÿè®¡æ‹¦æˆªçš„filtersï¼Œå»æ‰åç›‘æ§ç•Œé¢sqlå°†æ— æ³•ç»Ÿè®¡,'wall'ç”¨äºé˜²ç«å¢™
     filters: stat, wall, log4j
-  # rabbitmq Ïà¹Ø
-  rabbitmq:
+    # rabbitmq ç›¸å…³
+    rabbitmq:
     host: localhost
     port: 5672
     username: guest
     password: guest
-  application:
+    application:
     name: rabbitmq-plus
-  # mail Ïà¹Ø
+  # mail ç›¸å…³
   mail:
     host: smtp.qq.com
     port: 465
     username: 280767840@qq.com
     password: didxobmmyzaibicf
     protocol: smtp
-# mybatis Ïà¹Ø
+# mybatis ç›¸å…³
 mybatis:
   configuration:
-    # ¿ªÆôÍÕ·å×ª»»
+    # å¼€å¯é©¼å³°è½¬æ¢
     map-underscore-to-camel-case: true
-    # ¿ØÖÆÊÇ·ñ´òÓ¡SQL
+    # æ§åˆ¶æ˜¯å¦æ‰“å°SQL
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

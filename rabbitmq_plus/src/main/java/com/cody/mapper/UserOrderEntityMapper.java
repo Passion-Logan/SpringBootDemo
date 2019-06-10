@@ -2,7 +2,9 @@ package com.cody.mapper;
 
 import com.cody.entity.UserOrderEntity;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface UserOrderEntityMapper {
     int deleteByPrimaryKey(Integer id);
 

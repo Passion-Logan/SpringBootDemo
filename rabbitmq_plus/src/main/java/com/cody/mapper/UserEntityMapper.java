@@ -1,7 +1,9 @@
 package com.cody.mapper;
 
 import com.cody.entity.UserEntity;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface UserEntityMapper {
     int deleteByPrimaryKey(Integer id);
 

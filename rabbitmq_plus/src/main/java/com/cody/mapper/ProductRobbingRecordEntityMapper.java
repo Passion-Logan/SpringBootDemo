@@ -1,7 +1,9 @@
 package com.cody.mapper;
 
 import com.cody.entity.ProductRobbingRecordEntity;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface ProductRobbingRecordEntityMapper {
     int deleteByPrimaryKey(Integer id);
 

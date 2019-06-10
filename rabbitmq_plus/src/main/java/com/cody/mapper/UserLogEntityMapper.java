@@ -1,7 +1,9 @@
 package com.cody.mapper;
 
 import com.cody.entity.UserLogEntity;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface UserLogEntityMapper {
     int deleteByPrimaryKey(Integer id);
 

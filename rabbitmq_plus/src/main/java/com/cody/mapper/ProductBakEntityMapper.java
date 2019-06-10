@@ -1,7 +1,9 @@
 package com.cody.mapper;
 
 import com.cody.entity.ProductBakEntity;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface ProductBakEntityMapper {
     int deleteByPrimaryKey(Integer id);
 

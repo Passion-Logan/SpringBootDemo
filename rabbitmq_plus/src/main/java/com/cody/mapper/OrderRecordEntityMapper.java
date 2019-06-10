@@ -1,7 +1,9 @@
 package com.cody.mapper;
 
 import com.cody.entity.OrderRecordEntity;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface OrderRecordEntityMapper {
     int deleteByPrimaryKey(Integer id);
 
