@@ -41,6 +41,12 @@ spring:
     username: 280767840@qq.com
     password: didxobmmyzaibicf
     protocol: smtp
+    from: 280767840@qq.com
+    to: wangdadamailbox@163.com,280767840@qq.com
+    by: 280767840@qq.com
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
 # mybatis 相关
 mybatis:
   configuration:
@@ -48,3 +54,7 @@ mybatis:
     map-underscore-to-camel-case: true
     # 控制是否打印SQL
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+# logging 相关
+logging:
+  path: D:\\rabbitmq\\logs
+  file: spring-boot-starter-parent
