@@ -287,7 +287,7 @@ public class RabbitConfig
         args.put("x-dead-letter-routing-key", env.getProperty("simple.dead.routing.key.name"));
         args.put("x-message-ttl", 10000);
 
-        return new Queue(env.getProperty("simple.dead.queue.name"),true,false,false,args);
+        return new Queue(env.getProperty("simple.dead.queue.name"),true,false,false, args);
     }
 
     /**
@@ -334,7 +334,7 @@ public class RabbitConfig
         args.put("x-dead-letter-routing-key",env.getProperty("user.order.dead.routing.key.name"));
         args.put("x-message-ttl",10000);
 
-        return new Queue(env.getProperty("user.order.dead.queue.name"),true,false,false,args);
+        return new Queue(env.getProperty("user.order.dead.queue.name"),true,false,false, args);
     }
 
     /**
@@ -362,7 +362,6 @@ public class RabbitConfig
         return new Queue(env.getProperty("user.order.dead.real.queue.name"),true);
     }
 
-
     @Bean
     public TopicExchange userOrderDeadRealExchange(){
         return new TopicExchange(env.getProperty("user.order.dead.exchange.name"));
@@ -373,7 +372,6 @@ public class RabbitConfig
         return BindingBuilder.bind(userOrderDeadRealQueue()).to(userOrderDeadRealExchange()).with(env.getProperty("user.order.dead.routing.key.name"));
     }
 
-
     //TODO：死信队列动态设置TTL消息模型
 
     @Bean
@@ -382,7 +380,7 @@ public class RabbitConfig
         args.put("x-dead-letter-exchange",env.getProperty("dynamic.dead.exchange.name"));
         args.put("x-dead-letter-routing-key",env.getProperty("dynamic.dead.routing.key.name"));
 
-        return new Queue(env.getProperty("dynamic.dead.queue.name"),true,false,false,args);
+        return new Queue(env.getProperty("dynamic.dead.queue.name"),true,false,false, args);
     }
 
     @Bean
@@ -395,12 +393,10 @@ public class RabbitConfig
         return BindingBuilder.bind(dynamicDeadQueue()).to(dynamicDeadExchange()).with(env.getProperty("dynamic.dead.produce.routing.key.name"));
     }
 
-
     @Bean
     public Queue dynamicDeadRealQueue(){
         return new Queue(env.getProperty("dynamic.dead.real.queue.name"),true);
     }
-
 
     @Bean
     public TopicExchange dynamicDeadRealExchange(){
