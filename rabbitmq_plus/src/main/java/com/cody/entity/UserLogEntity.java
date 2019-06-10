@@ -72,4 +72,27 @@ public class UserLogEntity {
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
+
+    public UserLogEntity(String userName, String module, String operation, String data) {
+        this.userName = userName;
+        this.module = module;
+        this.operation = operation;
+        this.data = data;
+    }
+
+    public UserLogEntity() {
+    }
+
+    @Override
+    public String toString() {
+        return "UserLog{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", module='" + module + '\'' +
+                ", operation='" + operation + '\'' +
+                ", data='" + data + '\'' +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                '}';
+    }
 }

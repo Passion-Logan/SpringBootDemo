@@ -62,4 +62,16 @@ public class UserOrderEntity {
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
+
+    @Override
+    public String toString() {
+        return "UserOrder{" +
+                "id=" + id +
+                ", orderNo='" + orderNo + '\'' +
+                ", userId=" + userId +
+                ", status=" + status +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                '}';
+    }
 }
