@@ -7,7 +7,7 @@ import com.rabbitmq.client.Channel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.core.Message;
-import org.springframework.amqp.rabbit.listener.api.ChannelAwareMessageListener;
+import org.springframework.amqp.rabbit.core.ChannelAwareMessageListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -21,7 +21,7 @@ import org.springframework.stereotype.Component;
  * @Others: // 其它内容的说明
  * @History: // 历史修改记录
  */
-@Component("userOrderListener")
+@Component(value = "userOrderListener")
 public class UserOrderListener implements ChannelAwareMessageListener
 {
 
@@ -35,9 +35,6 @@ public class UserOrderListener implements ChannelAwareMessageListener
 
     @Autowired
     private ConcurrencyService concurrencyService;
-
-
-
 
     @Override
     public void onMessage(Message message, Channel channel) throws Exception

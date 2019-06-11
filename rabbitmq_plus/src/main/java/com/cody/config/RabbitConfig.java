@@ -7,9 +7,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
-import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
+import org.springframework.amqp.rabbit.support.CorrelationData;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -161,7 +161,7 @@ public class RabbitConfig
     private SimpleListener simpleListener;
 
     @Bean(name = "simpleContainer")
-    public SimpleMessageListenerContainer simpleContainer(@Qualifier("simpleQueue") Queue simpleQueue) {
+    public SimpleMessageListenerContainer simpleContainer(@Qualifier("simpleQueue") Queue simpleQueue){
         SimpleMessageListenerContainer container = new SimpleMessageListenerContainer();
         container.setConnectionFactory(connectionFactory);
         container.setMessageConverter(new Jackson2JsonMessageConverter());
@@ -373,7 +373,7 @@ public class RabbitConfig
 
     @Bean
     public Queue dynamicDeadQueue(){
-        Map<String, Object> args=new HashMap();
+        Map<String, Object> args=new HashMap(2);
         args.put("x-dead-letter-exchange",env.getProperty("dynamic.dead.exchange.name"));
         args.put("x-dead-letter-routing-key",env.getProperty("dynamic.dead.routing.key.name"));
 
