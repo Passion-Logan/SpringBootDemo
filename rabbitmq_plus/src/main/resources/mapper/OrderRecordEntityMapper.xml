@@ -17,6 +17,11 @@
     from order_record
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectAll">
+    select
+    <include refid="Base_Column_List" />
+    from order_record
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from order_record
     where id = #{id,jdbcType=INTEGER}
