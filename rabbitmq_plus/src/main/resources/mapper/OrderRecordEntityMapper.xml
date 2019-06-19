@@ -17,7 +17,7 @@
     from order_record
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <select id="selectAll">
+  <select id="selectAll" resultType="com.cody.entity.OrderRecordEntity">
     select
     <include refid="Base_Column_List" />
     from order_record
