@@ -12,7 +12,7 @@
     id, order_no, order_type, create_time, update_time
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from order_record
     where id = #{id,jdbcType=INTEGER}
@@ -27,9 +27,9 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.cody.entity.OrderRecordEntity">
-    insert into order_record (id, order_no, order_type, 
+    insert into order_record (id, order_no, order_type,
       create_time, update_time)
-    values (#{id,jdbcType=INTEGER}, #{orderNo,jdbcType=VARCHAR}, #{orderType,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{orderNo,jdbcType=VARCHAR}, #{orderType,jdbcType=VARCHAR},
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.cody.entity.OrderRecordEntity">
