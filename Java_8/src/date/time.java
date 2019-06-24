@@ -1,7 +1,5 @@
 package date;
 
-import javax.xml.crypto.Data;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -10,7 +8,7 @@ import java.util.*;
  * @File Name: date
  * @Author: WQL //作者及
  * @Date: 2019/6/18 9:44//完成日期
- * @Description: // 描述
+ * @Description: // 返回一个时间段内的所有日期
  * @Version: v0.0.1 // 版本信息
  * @Function List: // 主要函数及其功能
  * @Others: // 其它内容的说明

@@ -1,15 +1,16 @@
 package date;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 /**
  * @File Name: date
  * @Author: WQL //作者及
  * @Date: 2019/6/12 14:36//完成日期
- * @Description: // 描述
+ * @Description: // 将一个时间字符串集合转为integer类型的集合
  * @Version: v0.0.1 // 版本信息
  * @Function List: // 主要函数及其功能
  * @Others: // 其它内容的说明
@@ -30,7 +31,6 @@ public class demo
         System.out.println(dateTime.getYear() + "-" + month);
 
         System.out.println(month);
-
 
         String startTime = "00:11";
         String[] before = startTime.split(":");
