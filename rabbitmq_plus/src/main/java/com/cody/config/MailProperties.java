@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
  * @History: // 历史修改记录
  */
 @Configuration
-@ConfigurationProperties(prefix = "spring.mail")
+@ConfigurationProperties(prefix = "spring.boot.mail.properties")
 public class MailProperties
 {
     private String host;
@@ -26,6 +26,10 @@ public class MailProperties
     private String password;
 
     private String protocol;
+
+    private String needAuth;
+
+    private String sslClass;
 
     public String getHost() {
         return host;
@@ -65,5 +69,25 @@ public class MailProperties
 
     public void setProtocol(String protocol) {
         this.protocol = protocol;
+    }
+
+    public String getNeedAuth()
+    {
+        return needAuth;
+    }
+
+    public void setNeedAuth(String needAuth)
+    {
+        this.needAuth = needAuth;
+    }
+
+    public String getSslClass()
+    {
+        return sslClass;
+    }
+
+    public void setSslClass(String sslClass)
+    {
+        this.sslClass = sslClass;
     }
 }

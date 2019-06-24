@@ -21,21 +21,20 @@ public class time
 
     public static void main(String[] args)
     {
-        String start = "2018-08-08";
-        String end = "2018-08-09";
+        String start = "2019-06-20";
+        String end = "2019-06-20";
 
         time time = new time();
 
         System.out.println(time.getBetweenDates(start,end).toString());
     }
 
-    private List<Date> getBetweenDates(String start, String end) {
-        List<Date> result = new ArrayList<>();
+    private List<String> getBetweenDates(String start, String end) {
+        List<String> result = new ArrayList<>();
 
         try {
 
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-//            DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
             Date start_date = sdf.parse(start);
             Date end_date = sdf.parse(end);
@@ -48,10 +47,8 @@ public class time
 
             tempEnd.setTime(end_date);
 
-
-            while (tempStart.before(tempEnd)||tempStart.equals(tempEnd)) {
-//                result.add(sdf.format(tempStart.getTime()));
-                result.add(tempStart.getTime());
+            while (tempStart.before(tempEnd) || tempStart.equals(tempEnd)) {
+                result.add(sdf.format(tempStart.getTime()));
                 tempStart.add(Calendar.DAY_OF_YEAR, 1);
             }
 

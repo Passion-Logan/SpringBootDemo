@@ -33,8 +33,9 @@ public class MailService
         Properties properties = new Properties();
         properties.setProperty("mail.host", mailProperties.getHost());
         properties.setProperty("mail.transport.protocol", mailProperties.getProtocol());
+        properties.setProperty("mail.smtp.auth", mailProperties.getNeedAuth());
+        properties.setProperty("mail.smtp.socketFactory.class", mailProperties.getSslClass());
         properties.setProperty("mail.smtp.port", mailProperties.getPort()+"");
-
 
         /*Session session = Session.getDefaultInstance(properties);
         session.setDebug(true);*/ //第一种写法
@@ -61,8 +62,8 @@ public class MailService
         mimeMessage.addRecipients(Message.RecipientType.TO, addresses);
 
         //TODO：只发送一个收件人
-        //mimeMessage.addRecipients(Message.RecipientType.TO, "1974544863@qq.com");
-        //mimeMessage.addRecipients(Message.RecipientType.CC, "linsenzhong@126.com");
+        //mimeMessage.addRecipients(Message.RecipientType.TO, "280767840@qq.com");
+        //mimeMessage.addRecipients(Message.RecipientType.CC, "280767840@qq.com");
 
         Transport transport = session.getTransport();
         transport.connect(mailProperties.getHost(), mailProperties.getUserName(), mailProperties.getPassword());
