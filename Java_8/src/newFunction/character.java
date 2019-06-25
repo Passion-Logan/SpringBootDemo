@@ -9,7 +9,7 @@ import java.util.function.Predicate;
  * @File Name: newFunction
  * @Author: WQL //作者及
  * @Date: 2019/6/24 13:54//完成日期
- * @Description: // Java8的一些新特性
+ * @Description: // Predicate <T> 函数式接口
  * @Version: v0.0.1 // 版本信息
  * @Function List: // 主要函数及其功能
  * @Others: // 其它内容的说明
