@@ -1,5 +1,7 @@
 package newFunction;
 
+import java.time.LocalTime;
+
 /**
  * @File Name: newFunction
  * @Author: WQL //作者及
@@ -12,5 +14,11 @@ package newFunction;
  */
 public class optional
 {
+
+    public static void main(String[] args)
+    {
+
+
+    }
 
 }
