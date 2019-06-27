@@ -37,23 +37,29 @@ public class Practice
 class Tickt implements Runnable{
     private static Integer store = 3;
 
-    ReentrantLock rt = new ReentrantLock();
+//    ReentrantLock rt = new ReentrantLock();
 
+    /**
+     * 1 可使用 synchronized 锁 run方法
+     *
+     *
+     */
     @Override
-    public void run()
+    synchronized public void run()
     {
-
-        try
+//        try
+//        {
+//            rt.lock();
+        if (store > 0)
         {
-            rt.lock();
-            if (store > 0)
-            {
-                store--;
-                System.out.println("线程 " + Thread.currentThread().getName() + "买到了， 剩余库存 : " + store);
-            }
-        } finally
-        {
-            rt.unlock();
+            store--;
+            System.out.println("线程 " + Thread.currentThread().getName() + "买到了， 剩余库存 : " + store);
         }
+
+
+//        } finally
+//        {
+//            rt.unlock();
+//        }
     }
 }
