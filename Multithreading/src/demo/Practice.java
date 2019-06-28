@@ -41,25 +41,30 @@ class Tickt implements Runnable{
 
     /**
      * 1 可使用 synchronized 锁 run方法
-     *
+     * 2 可使用 synchronized 锁 代码块
+     * 3 可使用 ReentrantLock 加锁后必须显示地进行释放锁，释放锁必须在finally中执行，否则会造成死锁
+     *   synchronized在遇到异常后会自动释放，ReentrantLock不会
      *
      */
     @Override
     synchronized public void run()
     {
-//        try
-//        {
-//            rt.lock();
-        if (store > 0)
+        final ReentrantLock rt = new ReentrantLock();
+
+        try
         {
-            store--;
-            System.out.println("线程 " + Thread.currentThread().getName() + "买到了， 剩余库存 : " + store);
-        }
-
-
-//        } finally
+            rt.lock();
+//        synchronized (this)
 //        {
-//            rt.unlock();
+            if (store > 0)
+            {
+                store--;
+                System.out.println("线程 " + Thread.currentThread().getName() + "买到了， 剩余库存 : " + store);
+            }
 //        }
+        } finally
+        {
+            rt.unlock();
+        }
     }
 }
