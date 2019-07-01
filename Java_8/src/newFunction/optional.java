@@ -1,15 +1,12 @@
 package newFunction;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Random;
-import java.util.Set;
+import java.util.Optional;
 
 /**
  * @File Name: newFunction
  * @Author: WQL //作者及
  * @Date: 2019/6/25 15:49//完成日期
- * @Description: // 生成六位随机数验证码
+ * @Description: //
  * @Version: v0.0.1 // 版本信息
  * @Function List: // 主要函数及其功能
  * @Others: // 其它内容的说明
@@ -17,77 +14,33 @@ import java.util.Set;
  */
 public class optional
 {
-    public static void main(String[] args) {
 
-        Set<String> store = getletterandnum(5);
+    public static void main(String[] args)
+    {
+        optional optional = new optional();
+        Integer value1 = null;
+        Integer value2 = new Integer(10);
 
-        printSet(store);
+        // Optional.ofNullable - 允许传递为 null 参数
+        Optional<Integer> a = Optional.ofNullable(value1);
 
+        // Optional.of - 如果传递的参数是 null，抛出异常 NullPointerException
+        Optional<Integer> b = Optional.of(value2);
+        System.out.println(optional.sum(a,b));
     }
 
-    public static Set<String> getletterandnum(int length) {
+    public Integer sum(Optional<Integer> a, Optional<Integer> b){
 
-        Set<String> set =new HashSet<>();
+        // Optional.isPresent - 判断值是否存在
 
-        for (int i = 0; i < length; i++) {
+        System.out.println("第一个参数值存在: " + a.isPresent());
+        System.out.println("第二个参数值存在: " + b.isPresent());
 
-            String value = getrandom();
+        // Optional.orElse - 如果值存在，返回它，否则返回默认值
+        Integer value1 = a.orElse(new Integer(0));
 
-            set.add(value);
-        }
-
-        //如果没有生成6位
-        if (set.size()<length) {
-
-            //继续调用生成随机数的方法
-            String value = getrandom();
-
-            set.add(value);
-
-        }
-
-        return  set;
-    }
-
-    /**
-     * 生成随机字母和数字方法
-     *
-     * @return
-     */
-    private static String getrandom() {
-        String value = "";
-        Random random = new Random();
-
-        //0、1、2
-        int gen = random.nextInt(2);
-
-        String charornum = gen % 2 == 0 ? "char" : "num";
-
-        if ("char".equals(charornum)) {
-
-            int temp = random.nextInt(2) % 2 == 0 ? 65 : 97;
-
-            int ascii = random.nextInt(26);
-
-            value += (char) (ascii + temp);
-
-        } else if ("num".equalsIgnoreCase(charornum)) {
-
-            value += String.valueOf(random.nextInt(10));
-        }
-        return value;
-    }
-
-    /**
-     *  打印set的方法
-     *
-     * @param set
-     */
-    public static  void printSet(Set set){
-        Iterator iterator = set.iterator();
-        while (iterator.hasNext()) {
-            String ele = (String) iterator.next();
-            System.out.print(ele+" ");
-        }
+        //Optional.get - 获取值，值需要存在
+        Integer value2 = b.get();
+        return value1 + value2;
     }
 }
