@@ -6,9 +6,9 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.Random;
 import javax.imageio.ImageIO;
-import javax.servlet.http.HttpServletRequest;
+/*import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Component;*/
 /**
  * @File Name: verificationCode.utils
  * @Author: WQL //作者及
@@ -29,7 +29,7 @@ public class demo
     private int stringNum = 4;
     private String randString;
 
-    public ValidateCode() {
+    public demo() {
         this.randString = this.findVerification(this.stringNum);
     }
 
@@ -52,7 +52,7 @@ public class demo
         return new Color(r, g, b);
     }
 
-    public String getRandcode(HttpServletRequest request, HttpServletResponse response) {
+    /*public String getRandcode(HttpServletRequest request, HttpServletResponse response) {
         BufferedImage image = new BufferedImage(this.width, this.height, 4);
         Graphics g = image.getGraphics();
         g.fillRect(0, 0, this.width, this.height);
@@ -78,7 +78,7 @@ public class demo
         }
 
         return randomString;
-    }
+    }*/
 
     private String drowString(Graphics g, String randomString, int i) {
         g.setFont(this.getFont());
