@@ -4,7 +4,7 @@ package demoT;
  * @File Name: demoT
  * @Author: WQL //作者及
  * @Date: 2019/7/3 10:43//完成日期
- * @Description: // 泛型 无界类型参数
+ * @Description: // 泛型
  * @Version: v0.0.1 // 版本信息
  * @Function List: // 主要函数及其功能
  * @Others: // 其它内容的说明
