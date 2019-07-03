@@ -37,6 +37,12 @@ public class MaximumTest
      *下面的例子演示了"extends"如何使用在一般意义上的意思"extends"（类）或者"implements"（接口）。
      * 该例子中的泛型方法返回三个可比较对象的最大值。
      *
+     * <? extends T>：是指 “上界通配符（Upper Bounds Wildcards）”
+     * <? super T>：是指 “下界通配符（Lower Bounds Wildcards）”
+     *
+     * 频繁往外读取内容的，适合用上界Extends。
+     * 经常往里插入的，适合用下界Super。
+     *
      * @param x
      * @param y
      * @param z
