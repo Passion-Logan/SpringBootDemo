@@ -71,7 +71,8 @@ public class demo
 
             value += (char) (ascii + temp);
 
-        } else if ("num".equalsIgnoreCase(charornum)) {
+        } else
+        if ("num".equalsIgnoreCase(charornum)) {
 
             value += String.valueOf(random.nextInt(10));
         }
