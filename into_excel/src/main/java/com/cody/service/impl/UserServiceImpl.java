@@ -125,7 +125,7 @@ public class UserServiceImpl implements UserService
                             Row nextRow = xssSheet0.getRow(i);
 
                             UserEntity userEntity= new UserEntity();
-                            buildAdmission(row, BigRow, nextRow, userEntity, 2);
+                            buildAdmission(row, nextRow, userEntity);
                             list.add(userEntity);
 //                            userJPA.save(userEntity);
                         }
@@ -133,7 +133,7 @@ public class UserServiceImpl implements UserService
                     else
                     {
                         UserEntity userEntity = new UserEntity();
-                        buildAdmission(row, BigRow, row, userEntity,1);
+                        buildAdmission(row, row, userEntity);
                         list.add(userEntity);
 //                        userJPA.save(userEntity);
                     }
@@ -145,7 +145,7 @@ public class UserServiceImpl implements UserService
                 row = xssSheet0.getRow(i);
 
                 UserEntity userEntity = new UserEntity();
-                buildAdmission(row, BigRow, row, userEntity, 1);
+                buildAdmission(row, row, userEntity);
                 list.add(userEntity);
 //                userJPA.save(userEntity);
             }
@@ -153,7 +153,7 @@ public class UserServiceImpl implements UserService
         return list;
     }
 
-    private void buildAdmission(Row row, Row BigRow, Row nextRow, UserEntity userEntity, Integer type) {
+    private void buildAdmission(Row row, Row BigRow, UserEntity userEntity) {
         final String name = PoiExcelUtil.getCellValue(BigRow.getCell(0));
         userEntity.setName(name);
 
