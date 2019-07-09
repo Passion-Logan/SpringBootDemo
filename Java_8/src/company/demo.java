@@ -1,7 +1,9 @@
 package company;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @File Name: company
@@ -16,12 +18,79 @@ import java.util.List;
 public class demo
 {
 
+    private Map<String, Object> first = null;
+    private Map<String, Object> second = null;
+    private Map<String, Object> third = null;
+    private Map<String, Object> data = null;
+
     public static void main(String[] args)
     {
         demo demo = new demo();
 
+        demo.handleList(demo.newData());
+    }
 
+    public String handleList(List<String[]> data)
+    {
+        Map<String, Object> first = first(data);
+        System.out.println("一级项目 " + first.size());
 
+        return "";
+    }
+
+    /**
+     * 存储一级项目
+     * key：名称 value:生成的ID
+     *
+     * @param data
+     * @return
+     */
+    public Map<String, Object> first(List<String[]> data)
+    {
+        first = new HashMap<>(data.size());
+        for (String[] s : data)
+        {
+            first.put(s[0], Math.random()*100);
+        }
+        return first;
+    }
+
+    /**
+     * 存储二级项目
+     * key:pid, value:项目名称
+     *
+     * @param data
+     * @return
+     */
+    public void second(List<String[]> data)
+    {
+        second = new HashMap<>(data.size());
+        for (String[] s : data)
+        {
+            for (int i = 0; i < s.length; i++)
+            {
+                if (!isNum(s[i]))
+                {
+                    if (i - 1 >= 1)
+                    {
+                        second.put(String.valueOf(first.get(s[0])), s[1]);
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * 判断是否为数字
+     *
+     * @param msg
+     * @return
+     */
+    public boolean isNum(String msg){
+        if(java.lang.Character.isDigit(msg.charAt(0))){
+            return true;
+        }
+        return false;
     }
 
     public List<String[]> newData()
