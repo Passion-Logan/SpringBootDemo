@@ -18,65 +18,91 @@ import java.util.Map;
 public class demo
 {
 
-    private Map<String, Object> first = null;
-    private Map<String, Object> second = null;
-    private Map<String, Object> third = null;
-    private Map<String, Object> data = null;
+    private List<String[]> first = null;
+    private List<String[]> second = null;
+    private List<String[]>third = null;
 
     public static void main(String[] args)
     {
         demo demo = new demo();
+
 
         demo.handleList(demo.newData());
     }
 
     public String handleList(List<String[]> data)
     {
-        Map<String, Object> first = first(data);
-        System.out.println("一级项目 " + first.size());
+        // List<String[]> first = first(data);
+        second(data);
+        System.out.println(" 一级项目 " + first.size());
+        System.out.println(" 二级项目 " + second.size());
+        System.out.println(" 三级项目 " + third.size());
 
         return "";
     }
 
     /**
      * 存储一级项目
-     * key：名称 value:生成的ID
      *
      * @param data
      * @return
      */
-    public Map<String, Object> first(List<String[]> data)
+    public List<String[]> first(List<String[]> data)
     {
-        first = new HashMap<>(data.size());
+        first = new ArrayList<>(data.size());
         for (String[] s : data)
         {
-            first.put(s[0], Math.random()*100);
+            for (int i = 0; i < s.length; i++)
+            {
+                if (isNum(s[i]))
+                {
+                    if (i - 1 == 0)
+                    {
+                        fication(i, s);
+                    }
+                    break;
+                }
+            }
         }
         return first;
     }
 
     /**
      * 存储二级项目
-     * key:pid, value:项目名称
      *
      * @param data
      * @return
      */
     public void second(List<String[]> data)
     {
-        second = new HashMap<>(data.size());
+        second = new ArrayList<>(data.size());
         for (String[] s : data)
         {
             for (int i = 0; i < s.length; i++)
             {
-                if (!isNum(s[i]))
+                if (isNum(s[i]))
                 {
-                    if (i - 1 >= 1)
-                    {
-                        second.put(String.valueOf(first.get(s[0])), s[1]);
-                    }
+                    fication(i, s);
                 }
+                break;
             }
+        }
+    }
+
+    public void fication(int i, String[] s)
+    {
+
+        if (i - 1 == 0)
+        {
+            first.add(s);
+        }
+        if (i - 1 == 1)
+        {
+            second.add(s);
+        }
+        if (i - 1 == 2)
+        {
+            third.add(s);
         }
     }
 
