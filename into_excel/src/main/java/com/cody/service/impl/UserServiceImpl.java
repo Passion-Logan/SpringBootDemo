@@ -3,10 +3,13 @@ package com.cody.service.impl;
 import com.cody.entity.UserEntity;
 import com.cody.jpa.UserJPA;
 import com.cody.service.UserService;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
+import com.cody.util.PoiExcelUtil;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.util.CellRangeAddress;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -32,7 +35,7 @@ public class UserServiceImpl implements UserService
     @Autowired
     private UserJPA userJPA;
 
-    @Override
+    /*@Override
     public List<UserEntity> importExcel(String fileName, MultipartFile file) throws Exception
     {
         List<UserEntity> list = new ArrayList<>();
@@ -46,6 +49,7 @@ public class UserServiceImpl implements UserService
         }
         InputStream is = file.getInputStream();
         HSSFWorkbook wb = null;
+
         if (isExcel2003) {
             wb = new HSSFWorkbook(new POIFSFileSystem(is));
         }
@@ -71,6 +75,96 @@ public class UserServiceImpl implements UserService
         }
 
         return list;
+    }*/
+
+
+    /**
+     *  导入具有合并单元格的Excel
+     *
+     * @param fileName
+     * @param file
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public List<UserEntity> importExcel(String fileName, MultipartFile file) throws Exception
+    {
+        List<UserEntity> list = new ArrayList<>();
+
+        if (!fileName.matches("^.+\\.(?i)(xls)$") && !fileName.matches("^.+\\.(?i)(xlsx)$")) {
+            throw new Exception("上传文件格式不正确");
+        }
+
+        final InputStream inputStrea = file.getInputStream();
+        HSSFWorkbook wb = new HSSFWorkbook(new POIFSFileSystem(inputStrea));
+
+        final Sheet xssSheet0 = wb.getSheetAt(0);
+        Row row;
+
+        List<CellRangeAddress> cras = PoiExcelUtil.getCombineCell(xssSheet0);
+
+        for (int i = 1; i < xssSheet0.getPhysicalNumberOfRows(); i++)
+        {
+            Row BigRow = xssSheet0.getRow(i);
+            if (BigRow == null)
+            {
+                break;
+            }
+            if (PoiExcelUtil.isMergedRegion(xssSheet0, i, 0))
+            {
+                int lastRow = PoiExcelUtil.getRowNum(cras, xssSheet0.getRow(i).getCell(0), xssSheet0);
+
+                for (; i <= lastRow; i++)
+                {
+                    row = xssSheet0.getRow(i);
+
+                    // 判断该行第2列是合并单元格
+                    if (PoiExcelUtil.isMergedRegion(xssSheet0, i, 1)) {
+                        int lastRow2 = PoiExcelUtil.getRowNum(cras, xssSheet0.getRow(i).getCell(1), xssSheet0);
+                        for (; i <= lastRow2; i++) {
+                            Row nextRow = xssSheet0.getRow(i);
+
+                            UserEntity userEntity= new UserEntity();
+                            buildAdmission(row, nextRow, userEntity);
+                            list.add(userEntity);
+//                            userJPA.save(userEntity);
+                        }
+                    }
+                    else
+                    {
+                        UserEntity userEntity = new UserEntity();
+                        buildAdmission(row, row, userEntity);
+                        list.add(userEntity);
+//                        userJPA.save(userEntity);
+                    }
+                }
+                i--;
+            }
+            else
+            {
+                row = xssSheet0.getRow(i);
+
+                UserEntity userEntity = new UserEntity();
+                buildAdmission(row, row, userEntity);
+                list.add(userEntity);
+//                userJPA.save(userEntity);
+            }
+        }
+        return list;
+    }
+
+    private void buildAdmission(Row row, Row BigRow, UserEntity userEntity) {
+        final String name = PoiExcelUtil.getCellValue(BigRow.getCell(0));
+        userEntity.setName(name);
+
+        Integer age = null;
+        if (PoiExcelUtil.getCellValue(BigRow.getCell(1)) != null) {
+            age = Integer.valueOf(PoiExcelUtil.getCellValue(BigRow.getCell(1)));
+            userEntity.setAge(age);
+        }
+
+        String tel = PoiExcelUtil.getCellValue(row.getCell(2));
+        userEntity.setTel(tel);
     }
 
     @Override
