@@ -1,4 +1,4 @@
-package com.demo.cody.quartz_plus.swagger;
+package com.demo.cody.swagger;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

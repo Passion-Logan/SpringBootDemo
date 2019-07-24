@@ -8,8 +8,8 @@
 		<version>2.1.6.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.demo.cody</groupId>
-	<artifactId>quartz_plus</artifactId>
+	<groupId>com.demo</groupId>
+	<artifactId>cody</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>quartz_plus</name>
 	<description>quartz 定时任务控制</description>

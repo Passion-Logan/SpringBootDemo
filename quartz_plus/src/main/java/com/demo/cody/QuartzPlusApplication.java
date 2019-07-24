@@ -1,4 +1,4 @@
-package com.demo.cody.quartz_plus;
+package com.demo.cody;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
