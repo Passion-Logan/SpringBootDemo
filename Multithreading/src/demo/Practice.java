@@ -4,7 +4,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @File Name: demo
- * @Author: WQL //作者及
+ * @Author: WQL
  * @Date: 2019/6/27 16:13//完成日期
  * @Description: // 描述
  * @Version: v0.0.1 // 版本信息
