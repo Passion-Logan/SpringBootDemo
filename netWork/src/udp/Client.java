@@ -13,7 +13,7 @@ import java.net.*;
  * @Others: // 其它内容的说明
  * @History: // 历史修改记录
  */
-public class client
+public class Client
 {
 
     public static void main(String[] args) throws IOException

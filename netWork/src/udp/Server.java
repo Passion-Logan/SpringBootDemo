@@ -15,7 +15,7 @@ import java.net.SocketException;
  * @Others: // 其它内容的说明
  * @History: // 历史修改记录
  */
-public class server
+public class Server
 {
 
     public static void main(String[] args) throws IOException
