@@ -16,9 +16,10 @@ import java.net.Socket;
  */
 public class Receive implements Runnable
 {
-
     private DataInputStream dis;
     private boolean isRunning = true;
+
+    public Receive(){};
 
     public Receive(Socket socket)
     {
@@ -39,7 +40,7 @@ public class Receive implements Runnable
      */
     public String receive()
     {
-        String msg = null;
+        String msg = "";
         try
         {
             msg = dis.readUTF();
