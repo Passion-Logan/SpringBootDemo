@@ -15,7 +15,6 @@ import java.net.Socket;
  */
 public class Send implements Runnable
 {
-
     private BufferedReader br;
     private DataOutputStream dos;
     private boolean isRunning = true;
@@ -23,7 +22,6 @@ public class Send implements Runnable
     public Send()
     {
         this.br = new BufferedReader(new InputStreamReader(System.in));
-        this.dos = dos;
     }
 
     public Send(Socket socket)
@@ -54,7 +52,7 @@ public class Send implements Runnable
         {
             e.printStackTrace();
         }
-        return null;
+        return "";
     }
 
     /**
