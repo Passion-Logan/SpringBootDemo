@@ -62,7 +62,7 @@ public class Send implements Runnable
     {
         String msg = getMsgFromConsole();
 
-        if (null != msg && msg.equals(""))
+        if (null != msg && !msg.equals(""))
         {
             try
             {

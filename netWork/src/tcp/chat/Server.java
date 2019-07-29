@@ -21,6 +21,7 @@ public class Server
     public static void main(String[] args) throws IOException
     {
         ServerSocket server = new ServerSocket(9999);
+        System.out.println("服务器启动成功");
         Socket socket = server.accept();
 
         DataInputStream dis = new DataInputStream(socket.getInputStream());
@@ -29,9 +30,9 @@ public class Server
         while (true)
         {
             String msg = dis.readUTF();
-            System.out.println(msg);
+            System.out.println("接收的： " + msg);
 
-            dos.writeUTF("服务器----》" + msg);
+            dos.writeUTF("服务器----> " + msg);
             dos.flush();
         }
     }
