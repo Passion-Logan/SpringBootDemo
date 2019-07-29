@@ -30,7 +30,7 @@ public class Server
         while (true)
         {
             String msg = dis.readUTF();
-            System.out.println(msg);
+            System.out.println("接收的： " + msg);
 
             dos.writeUTF("服务器----> " + msg);
             dos.flush();
