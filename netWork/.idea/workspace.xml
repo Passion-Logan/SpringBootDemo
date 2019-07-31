@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f766539f-3dde-4b39-808f-2676b58133bd" name="Default Changelist" comment="Default Changelist">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/tcp/chat2/Client1.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/tcp/chat2/Client2.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/tcp/chat2/ServerThread.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/tcp/chat2/SocketService.java" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/netWork/tcp/chat/Server.class" afterPath="$PROJECT_DIR$/out/production/netWork/tcp/chat/Server.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/netWork/tcp/chat/ServerThread.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/tcp/chat/Server.java" afterPath="$PROJECT_DIR$/src/tcp/chat/Server.java" />
-      <change beforePath="$PROJECT_DIR$/src/tcp/chat/ServerThread.java" afterPath="" />
-    </list>
+    <list default="true" id="f766539f-3dde-4b39-808f-2676b58133bd" name="Default Changelist" comment="Default Changelist" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -45,8 +35,8 @@
       <file leaf-file-name="Server.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/tcp/chat/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="588">
-              <caret line="32" column="46" lean-forward="true" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="46" />
+            <state relative-caret-position="231">
+              <caret line="15" column="22" lean-forward="true" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -354,12 +344,12 @@
       <updated>1564320340188</updated>
       <workItem from="1564320358407" duration="6736000" />
       <workItem from="1564382618282" duration="772000" />
-      <workItem from="1564384272753" duration="5278000" />
+      <workItem from="1564384272753" duration="5367000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12786000" />
+    <option name="totallyTimeSpent" value="12875000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -627,8 +617,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tcp/chat/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="32" column="46" lean-forward="true" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="46" />
+        <state relative-caret-position="231">
+          <caret line="15" column="22" lean-forward="true" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
           <folding />
         </state>
       </provider>
