@@ -6,7 +6,7 @@ import java.util.concurrent.ScheduledFuture;
  * @File Name: com.demo.cody.task
  * @Author: WQL //作者及
  * @Date: 2019/8/5 17:26//完成日期
- * @Description: // 描述
+ * @Description: // 定时任务控制类
  * @Version: v0.0.1 // 版本信息
  * @Function List: // 主要函数及其功能
  * @Others: // 其它内容的说明
