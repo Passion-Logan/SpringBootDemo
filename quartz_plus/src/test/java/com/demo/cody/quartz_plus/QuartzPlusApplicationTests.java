@@ -22,14 +22,18 @@ public class QuartzPlusApplicationTests {
 	{
 		SchedulingRunnable task = new SchedulingRunnable("demoTask", "taskNoParams", null);
 		cronTaskRegistrar.addCronTask(task, "0/10 * * * * ?");
+
+		// 便于观察
+		Thread.sleep(3000000);
 	}
 
 	@Test
 	public void testHaveParamsTask() throws InterruptedException
 	{
-		SchedulingRunnable task = new SchedulingRunnable("demoTask", "taskWithParams", "haha", 23);
+		SchedulingRunnable task = new SchedulingRunnable("DemoTask", "taskWithParams", "haha", 23);
 		cronTaskRegistrar.addCronTask(task, "0/10 * * * * ?");
+
+		// 便于观察
+		Thread.sleep(3000000);
 	}
-
-
 }
