@@ -1,9 +1,9 @@
 package com.demo.cody.config;
 
+import com.demo.cody.task.ScheduledTask;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.TaskScheduler;
-import org.springframework.scheduling.config.ScheduledTask;
 import org.springframework.scheduling.config.CronTask;
 import org.springframework.stereotype.Component;
 
