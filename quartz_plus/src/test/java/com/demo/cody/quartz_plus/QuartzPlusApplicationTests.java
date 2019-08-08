@@ -30,7 +30,7 @@ public class QuartzPlusApplicationTests {
 	@Test
 	public void testHaveParamsTask() throws InterruptedException
 	{
-		SchedulingRunnable task = new SchedulingRunnable("DemoTask", "taskWithParams", "haha", 23);
+		SchedulingRunnable task = new SchedulingRunnable("demoTask", "taskWithParams", "haha", 23);
 		cronTaskRegistrar.addCronTask(task, "0/10 * * * * ?");
 
 		// 便于观察
