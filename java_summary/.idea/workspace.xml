@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="05e844e4-ba42-43bf-a9c0-49ec49259f2d" name="Default Changelist" comment="" />
+    <list default="true" id="05e844e4-ba42-43bf-a9c0-49ec49259f2d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/algorithm/sort/Insert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,10 +15,19 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/algorithm/sort/Insert.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="30" column="31" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/algorithm/sort/Bubbling.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-700">
-              <caret line="7" column="31" lean-forward="true" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
+            <state relative-caret-position="224">
+              <caret line="21" column="61" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="21" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -55,6 +67,7 @@
         <option value="$PROJECT_DIR$/src/Builder/ConcreteBuilder.java" />
         <option value="$PROJECT_DIR$/src/Builder/Client.java" />
         <option value="$PROJECT_DIR$/src/algorithm/sort/Bubbling.java" />
+        <option value="$PROJECT_DIR$/src/algorithm/sort/Insert.java" />
       </list>
     </option>
   </component>
@@ -117,7 +130,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566292429232" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566293350395" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="D:/Node/node" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.general" />
@@ -134,7 +147,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Bubbling">
+  <component name="RunManager" selected="Application.Insert">
     <configuration name="AbstractFactory" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AbstractFactory.AbstractFactory" />
       <module name="java_summary" />
@@ -187,8 +200,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Insert" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="algorithm.sort.Insert" />
+      <module name="java_summary" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="algorithm.sort.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Insert" />
         <item itemvalue="Application.Bubbling" />
         <item itemvalue="Application.Client" />
         <item itemvalue="Application.AbstractFactory" />
@@ -210,12 +237,12 @@
       <workItem from="1566055428145" duration="1380000" />
       <workItem from="1566098311739" duration="3065000" />
       <workItem from="1566132811238" duration="1162000" />
-      <workItem from="1566286086569" duration="3647000" />
+      <workItem from="1566286086569" duration="4393000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9912000" />
+    <option name="totallyTimeSpent" value="10658000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="22" width="1382" height="754" extended-state="6" />
@@ -400,8 +427,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/algorithm/sort/Bubbling.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-700">
-          <caret line="7" column="31" lean-forward="true" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
+        <state relative-caret-position="224">
+          <caret line="21" column="61" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="21" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/algorithm/sort/Insert.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="30" column="31" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
         </state>
       </provider>
     </entry>
