@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05e844e4-ba42-43bf-a9c0-49ec49259f2d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/algorithm/sort/Fast.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithm/sort/Fast.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/basics/常见算法.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/basics/常见算法.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -17,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/algorithm/sort/Fast.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="22" column="52" selection-start-line="22" selection-start-column="52" selection-end-line="22" selection-end-column="52" />
+            <state relative-caret-position="346">
+              <caret line="37" column="9" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -27,7 +26,7 @@
         <entry file="file://$PROJECT_DIR$/src/algorithm/sort/Insert.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="175">
-              <caret line="22" column="61" lean-forward="true" selection-start-line="19" selection-start-column="8" selection-end-line="22" selection-end-column="61" />
+              <caret line="22" column="61" selection-start-line="19" selection-start-column="8" selection-end-line="22" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -108,19 +107,6 @@
               <item name="java_summary" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="java_summary" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java_summary" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="algorithm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java_summary" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java_summary" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="algorithm" type="462c0819:PsiDirectoryNode" />
-              <item name="sort" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -132,7 +118,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566306905399" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566310313734" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="D:/Node/node" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.general" />
@@ -239,12 +225,12 @@
       <workItem from="1566055428145" duration="1380000" />
       <workItem from="1566098311739" duration="3065000" />
       <workItem from="1566132811238" duration="1162000" />
-      <workItem from="1566286086569" duration="14781000" />
+      <workItem from="1566286086569" duration="17501000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21046000" />
+    <option name="totallyTimeSpent" value="23766000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="22" width="1382" height="754" extended-state="6" />
@@ -444,14 +430,14 @@
     <entry file="file://$PROJECT_DIR$/src/algorithm/sort/Insert.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
-          <caret line="22" column="61" lean-forward="true" selection-start-line="19" selection-start-column="8" selection-end-line="22" selection-end-column="61" />
+          <caret line="22" column="61" selection-start-line="19" selection-start-column="8" selection-end-line="22" selection-end-column="61" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/algorithm/sort/Fast.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="22" column="52" selection-start-line="22" selection-start-column="52" selection-end-line="22" selection-end-column="52" />
+        <state relative-caret-position="346">
+          <caret line="37" column="9" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
         </state>
       </provider>
     </entry>
