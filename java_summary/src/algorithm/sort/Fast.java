@@ -17,7 +17,7 @@ public class Fast
 
     public static void main(String[] args)
     {
-        int[] arr = new int[]{1,6,3,5,2};
+        int[] arr = new int[]{3,1,6,5,2};
 
         System.out.println(Arrays.toString(arr));
         System.out.println(Arrays.toString(quickSort(arr)));
