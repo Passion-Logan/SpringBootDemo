@@ -16,6 +16,16 @@ public class Array
     private int length;
     private int elems;
 
+    public static void main(String[] args)
+    {
+        Array array = new Array(3);
+        array.add(6);
+        array.add(3);
+        array.add(7);
+
+        array.display();
+    }
+
     public Array(int max) {
         length = max;
         intArray = new int[max];
@@ -90,7 +100,7 @@ public class Array
      * 显示所有
      */
     public void display() {
-        for (int i = 0; i < elems - 1; i++) {
+        for (int i = 0; i < elems; i++) {
             System.out.println(intArray[i] + " ");
         }
         System.out.println("\n");
