@@ -24,8 +24,8 @@ public class LinkedList
         LinkedList linkedlist = new LinkedList();
         linkedlist.addHead("123");
         linkedlist.addTail("word");
-        //linkedList.deleteHead();
-        //linkedList.deleteTail();
+        //linkedlist.deleteHead();
+        //linkedlist.deleteTail();
         linkedlist.display();
     }    
 
@@ -50,6 +50,10 @@ public class LinkedList
         this.size = 0;
     }
 
+    /**
+     * 向链表头添加数据3
+     * @param object
+     */
     public void addHead(Object object) {
         Node node = new Node(object);
         if (size == 0) {
@@ -100,7 +104,7 @@ public class LinkedList
         // 尾部指向上一个，next值为null则说明是链表的尾部
         if (size != 0) {
             tail.next = null;
-            tail = tail.next;
+            tail = tail.prev;
             size--;
         }
     }
