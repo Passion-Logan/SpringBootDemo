@@ -10,7 +10,7 @@ package structure.linkedlist;
  * @Others: // 其它内容的说明
  * @History: // 历史修改记录
  */
-public class Array
+public class LinkedList
 {
 
     // 链表头
@@ -23,10 +23,10 @@ public class Array
     public static void main(String[] args) {
         LinkedList linkedlist = new LinkedList();
         linkedlist.addHead("123");
-        linkedList.addTail("word");
+        linkedlist.addTail("word");
         //linkedList.deleteHead();
         //linkedList.deleteTail();
-        linkedList.display();
+        linkedlist.display();
     }    
 
     /**
@@ -54,7 +54,7 @@ public class Array
         Node node = new Node(object);
         if (size == 0) {
             head = node;
-            prev = node;
+            tail = node;
             size++;
         } else {
             head.prev = node;
@@ -89,7 +89,7 @@ public class Array
             node.prev = tail;
             node.next = node;
             tail = node;
-            size++；
+            size++;
         }
     }
 
