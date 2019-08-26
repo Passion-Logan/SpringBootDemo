@@ -51,7 +51,7 @@ public class LinkedList
     }
 
     /**
-     * 向链表头添加数据3
+     * 向链表头添加数据
      * @param object
      */
     public void addHead(Object object) {
