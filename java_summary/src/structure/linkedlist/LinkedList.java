@@ -22,8 +22,10 @@ public class LinkedList
 
     public static void main(String[] args) {
         LinkedList linkedlist = new LinkedList();
+        linkedlist.addHead("456");
         linkedlist.addHead("123");
-        linkedlist.addTail("word");
+        //linkedlist.addTail("hello ");
+        //linkedlist.addTail("word");
         //linkedlist.deleteHead();
         //linkedlist.deleteTail();
         linkedlist.display();
@@ -62,7 +64,7 @@ public class LinkedList
             size++;
         } else {
             head.prev = node;
-            head.next = head;
+            node.next = head;
             head = node;
             size++;
         }
@@ -91,7 +93,7 @@ public class LinkedList
             size++;
         } else {
             node.prev = tail;
-            node.next = node;
+            tail.next = node;
             tail = node;
             size++;
         }
@@ -113,11 +115,26 @@ public class LinkedList
      * 显示数据
      */
     public void display() {
-        Node node = head;
-        while (size > 0) {
-            System.out.print("[" + node.data + "->");
-            node = node.next;
-            size--;
+
+        if (size > 0) {
+            Node node = head;
+            int tempSize = size;
+            if (tempSize == 1) {
+                System.out.println("["+node.data+"]");
+                return;
+            }
+
+            while (tempSize > 0) {
+                if (node.equals(head)) {
+                    System.out.print("["+node.data+"->");
+                } else if (node.next == null) {
+                    System.out.print(node.data+"]");
+                } else {
+                    System.out.print(node.data+"->");
+                }
+                node = node.next;
+                tempSize--;
+            }
         }
     }
 }
