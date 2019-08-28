@@ -1,9 +1,6 @@
 package interview;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @File Name: interview
@@ -34,6 +31,18 @@ public class Topic1
             add(new HashMap(){{put("a", 1111); put("b", 222);}});
         }};
 
-        System.out.println();
+        System.out.println(list);
+    }
+
+    public static Map<String, List<Map<String, Object>>> transition(List<Map<String, Object>> list) {
+        Map<String, List<Map<String, Object>>> map = new HashMap<>();
+        // 分组
+        for (Map<String ,Object> temp : list) {
+            // 获取map的每一对值
+            Iterator<Map.Entry<String, Object>> iterator = temp.entrySet().iterator();
+            while (iterator.hasNext()) {
+                
+            }
+        }
     }
 }
