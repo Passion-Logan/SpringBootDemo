@@ -17,10 +17,7 @@
         <entry file="file://$PROJECT_DIR$/src/interview/Topic1.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="421">
-              <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <caret line="53" column="29" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -123,7 +120,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566987155252" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566987853558" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="D:/Node/node" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.general" />
@@ -237,12 +234,12 @@
       <workItem from="1566813994227" duration="6004000" />
       <workItem from="1566896007689" duration="5435000" />
       <workItem from="1566959134548" duration="6064000" />
-      <workItem from="1566984977024" duration="1821000" />
+      <workItem from="1566984977024" duration="2540000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48040000" />
+    <option name="totallyTimeSpent" value="48759000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -535,10 +532,7 @@
     <entry file="file://$PROJECT_DIR$/src/interview/Topic1.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="421">
-          <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="53" column="29" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
         </state>
       </provider>
     </entry>

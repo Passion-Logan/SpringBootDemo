@@ -21,6 +21,9 @@ public class Topic1
          * 一个List<Map<String, Object>>对象，按照其中Map的key值进行分组并根据value值进行降序排列
          * 要求：
          * 初始化该list一个私有的静态方法完成此算法(至少含有参数List<Map<String, Object>>)
+         * 期望结果：
+         * 未排序数据:[{a=1, c=3}, {a=11, b=2}, {a=111, c=1}, {b=22}, {a=1111, b=222}]
+         * 已排序数据:{a=[{a=1111}, {a=111}, {a=11}, {a=1}], b=[{b=222}, {b=22}, {b=2}], c=[{c=3}, {c=1}]}
          */
 
         List<Map<String, Object>> list = new ArrayList(){{
@@ -31,7 +34,8 @@ public class Topic1
             add(new HashMap(){{put("a", 1111); put("b", 222);}});
         }};
 
-        System.out.println(list);
+        System.out.println("未分组排序数据:" + list);
+        System.out.println("已分组排序数据:" + transition(list));
     }
 
     public static Map<String, List<Map<String, Object>>> transition(List<Map<String, Object>> list) {
@@ -41,8 +45,26 @@ public class Topic1
             // 获取map的每一对值
             Iterator<Map.Entry<String, Object>> iterator = temp.entrySet().iterator();
             while (iterator.hasNext()) {
-                
+                List<Map<String, Object>> listAndMap = new ArrayList<>();
+                // 获取到每一个实体
+                Map.Entry<String, Object> entity = iterator.next();
+                if (map.containsKey(entity.getKey())) {
+                    // 获取原来存在的数据
+                    List<Map<String, Object>> lm = map.get(entity.getKey());
+                    lm.add(new HashMap<String, Object>() {{
+                        put(entity.getKey(), entity.getValue());
+                    }});
+                    Collections.sort(lm, (param1, param2) ->
+                            (param2.get(entity.getKey()).toString().compareTo(param1.get(entity.getKey()).toString()))
+                    );
+                } else {
+                    listAndMap.add(new HashMap<String, Object>() {{
+                        put(entity.getKey(), entity.getValue());
+                    }});
+                    map.put(entity.getKey(), listAndMap);
+                }
             }
         }
+        return map;
     }
 }
