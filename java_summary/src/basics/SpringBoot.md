@@ -15,17 +15,19 @@
 
 #### 2. @RestController 配置返回json和xml
 
-参考文章：[Spring Boot中如何扩展XML请求和响应的支持](http://blog.didispace.com/spring-boot-xml-httpmessageconverter/)
+参考文章：
 
-​					[MappingJackson2HttpMessageConverter转换器](https://blog.csdn.net/qq_38921377/article/details/72910959)
+[Spring Boot中如何扩展XML请求和响应的支持](http://blog.didispace.com/spring-boot-xml-httpmessageconverter/)
 
-​					[Jackson用于Bean和XML之间转换](https://blog.csdn.net/u014746965/article/details/78647616)
+[MappingJackson2HttpMessageConverter转换器](https://blog.csdn.net/qq_38921377/article/details/72910959)
 
-​					[自定义Jackson ObjectMapper](https://www.kancloud.cn/ahutchen/spring-boot-reference-guide/333370)
+[Jackson用于Bean和XML之间转换](https://blog.csdn.net/u014746965/article/details/78647616)
 
-​					[SpringBoot 消息转换器 HttpMessageConverter](https://www.cnblogs.com/hongdada/p/9120899.html)
+[自定义Jackson ObjectMapper](https://www.kancloud.cn/ahutchen/spring-boot-reference-guide/333370)
 
-​					[SpringMVC produces属性含义](https://blog.csdn.net/lzwglory/article/details/17252099)
+[SpringBoot 消息转换器 HttpMessageConverter](https://www.cnblogs.com/hongdada/p/9120899.html)
+
+[SpringMVC produces属性含义](https://blog.csdn.net/lzwglory/article/details/17252099)
 
 SpringBoot中处理HTTP请求的实现是采用SpringMVC，其中有个消息转换器的东西，主要负责处理各种不同格式的请求数据进行处理，并包转换成对象。
 
