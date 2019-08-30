@@ -1,4 +1,5 @@
 - [1. @SpringBootApplication](#1-springbootapplication)
+- [2. @RestController 配置返回json和xml](#2-restcontroller-配置返回json和xml)
 
 
 
@@ -19,6 +20,8 @@
 ​					[MappingJackson2HttpMessageConverter转换器](https://blog.csdn.net/qq_38921377/article/details/72910959)
 
 ​					[Jackson用于Bean和XML之间转换](https://blog.csdn.net/u014746965/article/details/78647616)
+
+​					[自定义Jackson ObjectMapper](https://www.kancloud.cn/ahutchen/spring-boot-reference-guide/333370)
 
 SpringBoot中处理HTTP请求的实现是采用SpringMVC，其中有个消息转换器的东西，主要负责处理各种不同格式的请求数据进行处理，并包转换成对象。
 
