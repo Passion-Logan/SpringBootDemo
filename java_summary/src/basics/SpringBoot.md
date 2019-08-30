@@ -25,6 +25,8 @@
 
 ​					[SpringBoot 消息转换器 HttpMessageConverter](https://www.cnblogs.com/hongdada/p/9120899.html)
 
+​					[SpringMVC produces属性含义](https://blog.csdn.net/lzwglory/article/details/17252099)
+
 SpringBoot中处理HTTP请求的实现是采用SpringMVC，其中有个消息转换器的东西，主要负责处理各种不同格式的请求数据进行处理，并包转换成对象。
 
 传统的SpringMVC需要配置xml文件，如下配置：
