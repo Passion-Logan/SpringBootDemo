@@ -34,7 +34,7 @@ SpringBoot中处理HTTP请求的实现是采用SpringMVC，其中有个消息转
 传统的SpringMVC需要配置xml文件，如下配置：
 
 ```xml
-
+ia
 <!-- 设置json转换消息转换器，并且设置supportedMediaTypes  否则抛出406 -->
 <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
     <property name="supportedMediaTypes">
