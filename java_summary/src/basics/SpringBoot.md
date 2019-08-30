@@ -1,3 +1,9 @@
+- [1. @SpringBootApplication](#1-springbootapplication)
+
+
+
+
+
 #### 1. @SpringBootApplication
 
 在SpringBoot中其中类中少不了@SpringBootApplication注解，这个注解相当于是几个注解的一个复合注解：@Configuration、@EnableAutoConfiguration、@ComponentScan
