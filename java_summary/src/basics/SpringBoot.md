@@ -18,6 +18,8 @@
 
 ​					[MappingJackson2HttpMessageConverter转换器](https://blog.csdn.net/qq_38921377/article/details/72910959)
 
+​					[Jackson用于Bean和XML之间转换](https://blog.csdn.net/u014746965/article/details/78647616)
+
 SpringBoot中处理HTTP请求的实现是采用SpringMVC，其中有个消息转换器的东西，主要负责处理各种不同格式的请求数据进行处理，并包转换成对象。
 
 传统的SpringMVC需要配置xml文件，如下配置：
@@ -111,12 +113,10 @@ SpringBoot的Rest接口返回格式可以通过XxxxMapping注解的produces进�
 @AllArgsConstructor
 @JacksonXmlRootElement(localName = "User")
 public class User {
-
     @JacksonXmlProperty(localName = "name")
     private String name;
     @JacksonXmlProperty(localName = "age")
     private Integer age;
-
 }
 ```
 
@@ -135,15 +135,22 @@ XML转换主要由四个注解：
 
 - @JacksonXmlElementWrapper：可用于指定List等集合类，外围标签名
 - @JacksonXmlProperty：指定包装标签名，或者指定标签内部的属性名
+- @JacksonXmlRootElement：指定生成xml根标签的名字
+- @JacksonXmlText：指定当前这个值，没有xml标签包裹
 
-3. 测试例子，实体类自行创建
+3. 创建接受xml请求的接口
 
 ```java
-@SpringBootApplication
-@RestController
-open class ProfileDemoApplication : CommandLineRunner {
-    @Autowired
-    private lateinit var repo: 
+@Controller
+public class UserController {
+
+    @PostMapping(value = "/user", consumes = MediaType.APPLICATION_XML_VALUE, produces = MediaType.APPLICATION_XML_VALUE)
+    @ResponseBody
+    public User create(@RequestBody User user) {
+        user.setName("didispace.com : " + user.getName());
+        user.setAge(user.getAge() + 100);
+        return user;
+    }
 }
 ```
 
