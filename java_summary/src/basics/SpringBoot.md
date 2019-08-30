@@ -16,6 +16,65 @@
 
 参考文章：[Spring Boot中如何扩展XML请求和响应的支持](http://blog.didispace.com/spring-boot-xml-httpmessageconverter/)
 
+​					[MappingJackson2HttpMessageConverter转换器](https://blog.csdn.net/qq_38921377/article/details/72910959)
+
+SpringBoot中处理HTTP请求的实现是采用SpringMVC，其中有个消息转换器的东西，主要负责处理各种不同格式的请求数据进行处理，并包转换成对象。
+
+传统的SpringMVC需要配置xml文件，如下配置：
+
+```xml
+
+<!-- 设置json转换消息转换器，并且设置supportedMediaTypes  否则抛出406 -->
+<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+    <property name="supportedMediaTypes">
+        <list>
+            <!-- 设置响应支持的类型 -->
+            <value>text/html;charset=UTF-8</value>
+            <!-- 设置请求body支持的类型 -->
+            <value>application/x-www-form-urlencoded</value>
+            <value>application/json;charset=UTF-8</value>
+        </list>
+    </property>
+</bean>
+```
+
+SpringMVC中定义了`HttpMessageConverter`接口，抽象了消息转换器对类型的判断、对读写的判断与操作，如下定义：
+
+```java
+public interface HttpMessageConverter<T> {
+    boolean canRead(Class<?> clazz, @Nullable MediaType mediaType);
+
+    boolean canWrite(Class<?> clazz, @Nullable MediaType mediaType);
+
+    List<MediaType> getSupportedMediaTypes();
+
+    T read(Class<? extends T> clazz, HttpInputMessage inputMessage) throws IOException, HttpMessageNotReadableException;
+
+    void write(T t, @Nullable MediaType contentType, HttpOutputMessage outputMessage) throws IOException, HttpMessageNotWritableException;
+
+}
+```
+
+如果要支持xml格式的消息转换，就必须要使用对应的转换器。SpringMVC中默认有一套采用Jackson实现的转换器`MappingJackson2XmlHttpMessageConverter，方法如下所示：
+
+```java
+@Configuration
+public class MessageConverterConfig extends WebMvcConfigurationAdapter {
+    @Override
+    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+        Jackson2ObjectMapperBuilder builder = Jackson2ObjectMapperBuilder.xml();
+        builder.indentOutput(true);
+        converters.add(new MappingJackson2XmlHttpMessageConverter(builder.build()));
+    }
+}
+```
+
+SpringBoot中则不用配置，只需要引入相对应的包依赖，引入后SpringBoot会自动引入`MappingJackson2XmlHttpMessageConverter`的实现，之后通过XxxxMapping注解的produces进行指定返回的格式类型，如下：
+
+
+
+
+
 SpringBoot的Rest接口返回格式可以通过XxxxMapping注解的produces进行指定，如果项目需要同时既能满足json与xml的返回格式就需要手动指定，如下：
 
 ```java
@@ -25,15 +84,7 @@ SpringBoot的Rest接口返回格式可以通过XxxxMapping注解的produces进�
 
 其中的APPLICATION_XML_VALUE与APPLICATION_JSON_VALUE表示使用xml或者json返回结果
 
-SpringBoot中处理HTTP请求的实现是采用SpringMVC，其中有个消息转换器的东西，主要负责处理各种不同格式的请求数据进行处理，并包转换成对象。
-
-SpringMVC中定义了`HttpMessageConverter`接口，抽象了消息转换器对类型的判断、对读写的判断与操作，如下定义：
-
-```java
-
-```
-
-
+下面以返回xml为例：
 
 1. 引入包依赖：依赖包不齐全将发生406错误
 
@@ -52,19 +103,38 @@ SpringMVC中定义了`HttpMessageConverter`接口，抽象了消息转换器对�
 </dependency>
 ```
 
-2. 添加xml转换器
+2. 定义xml对象
 
 ```java
-@Configuration
-public class MyWebConfiguration : WebMvcConfigurationAdapter {
-    @Bean
-    open fun jacksonXmlConverter() = MappingJackson2XmlHttpMessageConverter()
-        
-    override fun configurationMessageConverters(converters: List<HttpMessageConverter<*>>) {
-        
-    }
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@JacksonXmlRootElement(localName = "User")
+public class User {
+
+    @JacksonXmlProperty(localName = "name")
+    private String name;
+    @JacksonXmlProperty(localName = "age")
+    private Integer age;
+
 }
 ```
+
+其中：`@Data`、`@NoArgsConstructor`、`@AllArgsConstructor`是lombok简化代码的注解，主要用于生成get、set以及构造函数。`@JacksonXmlRootElement`、`@JacksonXmlProperty`注解是用来维护对象属性在xml中的对应关系。
+
+生成的xml如下：
+
+```xml
+<User>
+	<name>aaaa</name>
+	<age>10</age>
+</User>
+```
+
+XML转换主要由四个注解：
+
+- @JacksonXmlElementWrapper：可用于指定List等集合类，外围标签名
+- @JacksonXmlProperty：指定包装标签名，或者指定标签内部的属性名
 
 3. 测试例子，实体类自行创建
 
