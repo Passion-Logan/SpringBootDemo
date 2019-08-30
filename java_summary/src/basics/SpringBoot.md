@@ -23,6 +23,8 @@
 
 ​					[自定义Jackson ObjectMapper](https://www.kancloud.cn/ahutchen/spring-boot-reference-guide/333370)
 
+​					[SpringBoot 消息转换器 HttpMessageConverter](https://www.cnblogs.com/hongdada/p/9120899.html)
+
 SpringBoot中处理HTTP请求的实现是采用SpringMVC，其中有个消息转换器的东西，主要负责处理各种不同格式的请求数据进行处理，并包转换成对象。
 
 传统的SpringMVC需要配置xml文件，如下配置：
@@ -68,6 +70,7 @@ public class MessageConverterConfig extends WebMvcConfigurationAdapter {
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         Jackson2ObjectMapperBuilder builder = Jackson2ObjectMapperBuilder.xml();
+        // 设置美化打印出
         builder.indentOutput(true);
         converters.add(new MappingJackson2XmlHttpMessageConverter(builder.build()));
     }
@@ -76,15 +79,9 @@ public class MessageConverterConfig extends WebMvcConfigurationAdapter {
 
 SpringBoot中则不用配置，只需要引入相对应的包依赖，引入后SpringBoot会自动引入`MappingJackson2XmlHttpMessageConverter`的实现，之后通过XxxxMapping注解的produces进行指定返回的格式类型，如下：
 
-
-
-
-
-SpringBoot的Rest接口返回格式可以通过XxxxMapping注解的produces进行指定，如果项目需要同时既能满足json与xml的返回格式就需要手动指定，如下：
-
 ```java
 @GetMapping(value = "/json", produces = MediaType.APPLICATION_JSON_VALUE)
-@GetMapping(value = "/xml",produces = MediaType.APPLICATION_XML_VALUE)
+@GetMapping(value = "/xml", produces = MediaType.APPLICATION_XML_VALUE)
 ```
 
 其中的APPLICATION_XML_VALUE与APPLICATION_JSON_VALUE表示使用xml或者json返回结果
@@ -108,7 +105,7 @@ SpringBoot的Rest接口返回格式可以通过XxxxMapping注解的produces进�
 </dependency>
 ```
 
-2. 定义xml对象
+2. 定义xml关系对象
 
 ```java
 @Data
@@ -141,7 +138,7 @@ XML转换主要由四个注解：
 - @JacksonXmlRootElement：指定生成xml根标签的名字
 - @JacksonXmlText：指定当前这个值，没有xml标签包裹
 
-3. 创建接受xml请求的接口
+3. 创建接收xml请求的接口
 
 ```java
 @Controller
