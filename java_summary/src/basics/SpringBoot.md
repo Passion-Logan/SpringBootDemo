@@ -158,3 +158,6 @@ public class UserController {
 }
 ```
 
+#### 3. 编写启动命令来调用不同的开发环境和测试环境的配置文件
+
+#### 4. javaBean和javaType之间的切换需要如何配置
