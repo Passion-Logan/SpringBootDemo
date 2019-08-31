@@ -1,5 +1,7 @@
 - [1. @SpringBootApplication](#1-springbootapplication)
 - [2. @RestController 配置返回json和xml](#2-restcontroller-配置返回json和xml)
+- [3. 编写启动命令来调用不同的开发环境和测试环境的配置文件](#3-编写启动命令来调用不同的开发环境和测试环境的配置文件)
+- [4. javaBean和javaType之间的切换需要如何配置](#4-javabean和javatype之间的切换需要如何配置)
 
 
 
