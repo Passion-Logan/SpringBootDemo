@@ -115,3 +115,6 @@ Demokey.id,Demokey.demo_id,Demokey.name,Demokey.id,Demokey.name
     <result column="END_DATE" property="endDate" jdbcType="DATE" />
 </resultMap>
 ```
+
+#### 4. #{}和${}的区别是什么
+
