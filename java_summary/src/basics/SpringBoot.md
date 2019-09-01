@@ -182,4 +182,62 @@ java -jar xxx.jar --spring.profiles.active=test
 java -jar xxx.jar --spring.profiles.active=prod
 ```
 
+第二中是使用Maven Profile
+
+pom.xml的配置如下：
+
+```xml
+<profiles>
+    <!--开发环境-->
+    <profile>
+        <id>dev</id>
+        <properties>
+            <build.profile.id>dev</build.profile.id>
+        </properties>
+        <activation>
+            <activeByDefault>true</activeByDefault>
+        </activation>
+    </profile>
+    <!--测试环境-->
+    <profile>
+        <id>test</id>
+        <properties>
+            <build.profile.id>test</build.profile.id>
+        </properties>
+    </profile>
+    <!--生产环境-->
+    <profile>
+        <id>prod</id>
+        <properties>
+            <build.profile.id>prod</build.profile.id>
+        </properties>
+    </profile>
+</profiles>
+
+<build>
+    <finalName>${project.artifactId}</finalName>
+    <resources>
+        <resource>
+            <directory>src/main/resources</directory>
+            <filtering>false</filtering>
+        </resource>
+        <resource>
+            <directory>src/main/resources.${build.profile.id}</directory>
+            <filtering>false</filtering>
+        </resource>
+    </resources>
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <configuration>
+                <classifier>exec</classifier>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+```
+
+通过执行`mvn clean package -P ${profile} `来指定使用哪个profile
+
 #### 4. javaBean和javaType之间的切换需要如何配置
