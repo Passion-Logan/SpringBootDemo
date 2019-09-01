@@ -67,7 +67,19 @@ Demokey.id,Demokey.demo_id,Demokey.name,Demokey.id,Demokey.name
 
 #### 2. MyBatis批量更新集合对象，需要实现什么配置
 
+参考文章：
 
+[mybatis批量插入、批量更新和批量删除](https://www.jianshu.com/p/041bec8ae6d3)
+
+[mybatis批量更新的一些问题](https://www.iteye.com/blog/lohasle-1740416)
+
+使用mybatis批量操作时，都会使用到foreach标签，主要元素有`item，index，collection，open，separator，close`。
+
+- item：表示集合中每一个元素进行迭代时的别名
+- index：指定一个名字，用于表示在迭代过程中，每次迭代到的位置
+- open：表示该语句以什么开始
+- separator：表示在每次进行迭代之间以什么符号作为分隔符
+- close：表示以什么结束
 
 #### 3. javaBean和jdbcType之间的切换需要如何配置
 
