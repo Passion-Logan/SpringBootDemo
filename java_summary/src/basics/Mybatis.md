@@ -80,6 +80,10 @@ Demokey.id,Demokey.demo_id,Demokey.name,Demokey.id,Demokey.name
 - open：表示该语句以什么开始
 - separator：表示在每次进行迭代之间以什么符号作为分隔符
 - close：表示以什么结束
+- collection：`该属性是必须指定的，在不同情况下的值不同`
+  - 如果传入的是单参数且参数类型是一个List的时候collection属性值为list
+  - 如果传入的是单参数且参数类型是一个Array的时候collection的属性值为array
+  - 如果传入的参数的多个的时候，就需要封装成一个Map，这个时候collection的属性值就是传入的List或Array在自己封装的Map里面的Key
 
 #### 3. javaBean和jdbcType之间的切换需要如何配置
 
