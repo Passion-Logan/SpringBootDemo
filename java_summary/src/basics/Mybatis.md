@@ -67,13 +67,17 @@ Demokey.id,Demokey.demo_id,Demokey.name,Demokey.id,Demokey.name
 
 #### 2. MyBatis批量更新集合对象，需要实现什么配置
 
+
+
 #### 3. javaBean和jdbcType之间的切换需要如何配置
 
 配置直接通过mapper的配置文件，写resultMap即可
 
 ```xml
 <resultMap id="BaseResultMap" type="com.demo.entity.Test" >
+    <!--用id属性来映射主键字段-->
     <id column="TYPE_ID" property="typeId" jdbcType="INTEGER" />
+    <!--用result属性来映射非主键字段，property为实体类字段名，column为数据表中的字段名-->
     <result column="TYPE" property="type" jdbcType="SMALLINT" />
     <result column="START_DATE" property="startDate" jdbcType="DATE" />
     <result column="END_DATE" property="endDate" jdbcType="DATE" />
