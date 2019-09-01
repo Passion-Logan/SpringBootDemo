@@ -162,4 +162,24 @@ public class UserController {
 
 #### 3. 编写启动命令来调用不同的开发环境和测试环境的配置文件
 
+在SpringBoot中多环境配置文件名需要满足`applicaton-{profile}.properties/yml`，其中{profile}对应环境的标识：
+
+- application-dev.properties/yml：开发环境
+- application-prod.properties/yml：生产环境
+- application-test.properties/yml：测试环境
+
+至于具体哪个配置文件被加载，需要在application.properties文件中通过spring.profiles.active属性来设置，其值对应{profile}值。
+
+例如：spring.profiles.active=dev，就会加载application-dev.properties配置文件的内容
+
+通过不同的启动命令来调用不同的开发环境：
+
+```java
+// 执行开发环境，在application.properties中设置spring.profiles.active=dev，则默认是dev环境
+// 执行测试环境的配置
+java -jar xxx.jar --spring.profiles.active=test
+// 执行生产环境的配置
+java -jar xxx.jar --spring.profiles.active=prod
+```
+
 #### 4. javaBean和javaType之间的切换需要如何配置
