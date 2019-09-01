@@ -85,6 +85,22 @@ Demokey.id,Demokey.demo_id,Demokey.name,Demokey.id,Demokey.name
   - 如果传入的是单参数且参数类型是一个Array的时候collection的属性值为array
   - 如果传入的参数的多个的时候，就需要封装成一个Map，这个时候collection的属性值就是传入的List或Array在自己封装的Map里面的Key
 
+```xml
+<update id="updateByBatch" parameterType="java.util.List">
+    update t_goods
+    set NODE_ID=
+    <foreach collection="list" item="item" index="index"
+             separator=" " open="case" close="end">
+        when GOODS_ID=#{item.goodsId} then #{item.nodeId}
+    </foreach>
+    where GOODS_ID in
+    <foreach collection="list" index="index" item="item"
+             separator="," open="(" close=")">
+        #{item.goodsId,jdbcType=BIGINT}
+    </foreach>
+</update>
+```
+
 #### 3. javaBean和jdbcType之间的切换需要如何配置
 
 配置直接通过mapper的配置文件，写resultMap即可
