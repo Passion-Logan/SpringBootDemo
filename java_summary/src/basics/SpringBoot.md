@@ -238,3 +238,6 @@ pom.xml的配置如下：
 ```
 
 通过执行`mvn clean package -P ${profile} `来指定使用哪个profile
+
+#### 4. SpringBoot读取配置的几种方式
+
