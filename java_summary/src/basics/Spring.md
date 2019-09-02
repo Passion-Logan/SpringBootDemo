@@ -46,3 +46,5 @@ private UserService userService;
 Spring中 BeanFactory接口是Spring IoC容器的核心接口。ApplicationContext接口对BeanFactory(是一个子接口)进行了扩展，我们常用的ClassPathXmlApplicationContexWeb.xml监听器来负责启动初始化Spring容器。
 
 #### 3. AOP是怎么实现的
+
+#### 4. Spring Bean的生命周期
