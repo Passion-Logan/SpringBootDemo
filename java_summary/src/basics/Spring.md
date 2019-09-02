@@ -26,4 +26,23 @@ private UserService userService;
 
 #### 2. 什么是IOC和DI，以及之间的区别和关系
 
+区别：
+
+- IOC控制反转：说的是创建对象实例的控制权从代码控制剥离到IOC容器控制，侧重与于原理。
+- DI依赖注入：说的是创建对象实例时，为这个对象注入属性值或其它对象实例，侧重于实现。
+
+`控制反转是一种思想，如何实现控制反转呢，注入是一种实现手段`
+
+关系：
+
+- DI不能单独存在，DI需要在IOC的基础上来完成
+
+在Java中依赖注入有三种实现方式：
+
+- 构造器注入
+- Setter方法注入
+- 接口注入
+
+Spring中 BeanFactory接口是Spring IoC容器的核心接口。ApplicationContext接口对BeanFactory(是一个子接口)进行了扩展，我们常用的ClassPathXmlApplicationContexWeb.xml监听器来负责启动初始化Spring容器。
+
 #### 3. AOP是怎么实现的
