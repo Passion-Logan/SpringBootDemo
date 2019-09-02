@@ -241,3 +241,32 @@ pom.xml的配置如下：
 
 #### 4. SpringBoot读取配置的几种方式
 
+读取applicationo文件：
+
+配置文件中有一个配置 info.address=TEST
+
+- @Value注解读取方式
+
+```java
+@Value("${info.address}")
+```
+
+- @ConfigurationProperties注解读取方式
+
+```java
+// 在类上写注解
+@Component
+@ConfigurationProperties(prefix  = "info")
+public class InfoConfig {
+    private String address;
+    
+    public String getAddress() {
+       return address;
+   }
+ 
+   public void setAddress(String address) {
+       this.address = address;
+   }
+}
+```
+
