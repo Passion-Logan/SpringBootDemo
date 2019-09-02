@@ -270,3 +270,39 @@ public class InfoConfig {
 }
 ```
 
+- 读取指定文件
+
+在资源目录下建立config/db-config.propreties：
+
+db.username=root
+
+db.password=root
+
+`@PropertySource+@Value注解方式读取`：@PropertySource注解不支持读取yml类型的文件
+
+```java
+@Component
+@PropertySource(value = { "config/db-config.properties" })
+public class DBConfig {
+    @Value("${db.username}")
+    private String username;
+    
+    @Value("${db.password}")
+    private String password;
+    
+    ....getter setter方法
+}
+```
+
+- Environment读取方式
+
+以上所有加载出来的配置都可以通过Environment注入获取到
+
+```java
+@Autowired
+private Environment env;
+
+// 获取参数
+String getProperty(String key);
+```
+
