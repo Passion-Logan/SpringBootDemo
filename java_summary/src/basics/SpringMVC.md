@@ -88,7 +88,7 @@
 
 #### 2. SpringMVC的请求流程
 
-![mvc_1](/img/mvc_1.png)
+![mvc_1](img/mvc_1.png)
 
 1. **Http请求**：客户端请求到DispatcherServlet
 2. **寻找处理器**：由DispatcherServlet控制器查询一个或多个HandlerMapping，找到处理请求的Controller
