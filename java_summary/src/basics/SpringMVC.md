@@ -90,4 +90,9 @@
 
 ![mvc_1](/img/mvc_1.png)
 
-1. 客户端请求到DispatcherServlet
+1. **Http请求**：客户端请求到DispatcherServlet
+2. **寻找处理器**：由DispatcherServlet控制器查询一个或多个HandlerMapping，找到处理请求的Controller
+3. **调用处理器**：DispatcherServlet将请求提交到Controller
+4. **调用业务处理和返回结果**：Controller调用业务逻辑处理后，返回ModelAndView
+5. **处理视图映射并返回结果**：DispatcherServlet查询一个或多个ViewResolver视图解析器，找到ModelAndView指定的视图
+6. **Http响应**：视图负责将结果显示到客户端
