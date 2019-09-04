@@ -90,3 +90,4 @@
 
 ![mvc_1](/img/mvc_1.png)
 
+1. 客户端请求到DispatcherServlet
