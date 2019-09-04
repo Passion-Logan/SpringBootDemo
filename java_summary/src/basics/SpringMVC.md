@@ -80,6 +80,11 @@
 <mvc:resources location="/img/" mapping="/img/**"/>   
 <mvc:resources location="/js/" mapping="/js/**"/>    
 <mvc:resources location="/css/" mapping="/css/**"/>
+
 ```
+
+- `<mvc:annotation-driven/>`
+
+`<mvc:annotation-driven/>`会自动注册DefaultAnnotationHandlerMapping与AnnotationMethodHandlerAdapter两个Bean，用以支持@Controller分发请求。并提供了数据绑定、参数转换、json转换等功能，所以必须加上这个配置
 
 #### 2. SpringMVC的请求流程
