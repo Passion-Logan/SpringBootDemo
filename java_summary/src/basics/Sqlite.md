@@ -32,6 +32,8 @@
 
 #### 2、SpringBoot中使用SQLite
 
+- 创建SQLite数据库
+
 - Maven引入依赖
 
   ```xml
@@ -45,7 +47,10 @@
 - 指定配置文件：
 
   ```xml
-  
+  spring.datasource.driver-class-name=org.sqlite.JDBC
+  spring.datasource.url=jdbc:sqlite:E:/Java/demo1/src/main/db/myDb
+  spring.datasource.username=root
+  spring.datasource.password=root
   ```
 
   
