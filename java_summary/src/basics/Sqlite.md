@@ -64,8 +64,6 @@
   spring.datasource.password=root
   ```
 
-  
-
 参考文章：[Spring Boot操作Sqlite数据库 从入门到跑路](https://segmentfault.com/a/1190000016176354?utm_source=tag-newest)
 
 #### 3、列式存储
