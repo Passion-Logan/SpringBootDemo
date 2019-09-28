@@ -19,6 +19,10 @@
 
   提供了叫做`sqlite`的一个独立程序用来查询和管理SQLite数据库文件。 它也充当写使用SQLite库的应用的一个例子。
 
+- SQLite管理客户端
+
+  
+
 #### 2、SpringBoot中使用SQLite
 
 #### 3、列式存储
