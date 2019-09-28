@@ -34,6 +34,17 @@
 
 - 创建SQLite数据库
 
+  main下创建一个db文件夹，右键-->New-->Data Source-->选择数据库后-->Open Console，运行如下脚本，创建一个表：
+
+  ```sql
+  create table hello
+  (
+    id    INTEGER primary key,
+    title varchar(150),
+    text  TEXT
+  );
+  ```
+
 - Maven引入依赖
 
   ```xml
