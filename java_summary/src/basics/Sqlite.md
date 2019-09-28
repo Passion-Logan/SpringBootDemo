@@ -28,7 +28,29 @@
   - SQLite Database Browser, a graphical client to access SQLite databases
   - SqlPro SQL Client, another graphical client to work with SQLite databases
 
+注：在线文档：[SQLite在线文档](http://www.ostools.net/apidocs/apidoc?api=sqlite)
+
 #### 2、SpringBoot中使用SQLite
+
+- Maven引入依赖
+
+  ```xml
+  <dependency>
+      <groupId>org.xerial</groupId>
+      <artifactId>sqlite-jdbc</artifactId>
+      <version>3.21.0.1</version>
+  </dependency>
+  ```
+
+- 指定配置文件：
+
+  ```xml
+  
+  ```
+
+  
+
+参考文章：[Spring Boot操作Sqlite数据库 从入门到跑路](https://segmentfault.com/a/1190000016176354?utm_source=tag-newest)
 
 #### 3、列式存储
 
