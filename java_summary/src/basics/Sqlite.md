@@ -21,7 +21,12 @@
 
 - SQLite管理客户端
 
-  
+  SQLite亦可以作为桌面数据库使用，以下为第三方SQLite的GUI软件。例如，
+
+  - SQLiteMan，使用QT开发的一个SQLite客户端，支持多语言、跨平台。SQLiteMan
+  - SQLite Manager, 以 火狐浏览器的扩展形式提供的SQLite客户端。
+  - SQLite Database Browser, a graphical client to access SQLite databases
+  - SqlPro SQL Client, another graphical client to work with SQLite databases
 
 #### 2、SpringBoot中使用SQLite
 
